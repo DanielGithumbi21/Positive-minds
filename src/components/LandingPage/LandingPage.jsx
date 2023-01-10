@@ -6,6 +6,7 @@ import Icons from './Icons';
 import Tips from './Tips';
 import Results from './Results';
 import Work from './Work';
+import Footer from './Footer';
 
 export default function LandingPage() {
     return (
@@ -22,6 +23,7 @@ export default function LandingPage() {
             <Tips />
             <Results />
             <Work />
+            <Footer />
         </main>
     )
 }
