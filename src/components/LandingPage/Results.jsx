@@ -43,7 +43,7 @@ export default function Results() {
 const StyledDiv = styled.div`
 //height: 500px;
 background: #CBC3B6;
-padding-top: 150px;
+padding-top: 90px;
 padding-bottom: 150px;
 padding-left: 30px;
 padding-right: 30px;
