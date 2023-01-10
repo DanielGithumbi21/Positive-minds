@@ -12,7 +12,7 @@ const drawerItems = [
       {
         name: "Dashboard",
         Icon: DashboardIcon,
-        link: "/",
+        link: "/client",
       },
     ],
   },

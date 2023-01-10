@@ -1,15 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import image1 from "../images/image1.jpg"
+import image1 from "../../assets/image1.jpg"
+import Navbar from './Navbar';
+import Icons from './Icons';
+import Results from './Results';
+import Tips from './Tips';
+import Work from './Work';
 
 export default function LandingPage() {
     return (
         <main>
+
+            <Navbar />
             <HeroDiv style={{ background: `url(${image1}) center center/cover` }}>
                 <h1 className='landing-text'>Expert-Led Online Group Therapy for Everyone</h1>
                 <p>Join an online therapy group, and be supported every step of the way.</p>
                 <button>Get Started</button>
             </HeroDiv>
+
+            <Icons />
+            <Results />
+            <Tips />
+            <Work />
         </main>
     )
 }
