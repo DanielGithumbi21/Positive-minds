@@ -1,29 +1,14 @@
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import LandingPage from './components/LandingPage';
-import Icons from './components/Icons';
-import Tips from './components/Tips';
-import Results from './components/Results';
-import Work from './components/Work';
 
-function App() {
+import React from 'react'
+import RoutesPage from './Routes/RoutesPage'
 
-
+const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <LandingPage />
-      <Icons />
-      <Tips />
-      <Results />
-      <Work />
 
-      {/* <Routes>
-        <Route path='/' />
-      </Routes> */}
-    </Router>
-  );
+    <React.Fragment>
+      <RoutesPage />
+    </React.Fragment>
+  )
 }
 
 export default App
