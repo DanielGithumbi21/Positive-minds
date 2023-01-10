@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-// import './index.css'
 import { DataProvider } from './Context/DataContext'
-import './index.css'
+// import './index.css'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <DataProvider>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </DataProvider>,
 )

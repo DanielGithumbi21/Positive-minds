@@ -2,7 +2,6 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -13,7 +12,8 @@ import ListItemText from '@mui/material/ListItemText';
 import { drawerItems } from './sideBarItems';
 import { DataContext } from '../../Context/DataContext';
 import { Divider } from '@mui/material';
-
+import { NavLink } from "react-router-dom";
+import "./Sidebar.css"
 const drawerWidth = 300;
 
 
@@ -30,7 +30,9 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function Sidebar() {
     const theme = useTheme();
     const { open, handleDrawerClose } = React.useContext(DataContext)
-
+    let activeStyle = {
+        color: "black",
+    };
     return (
         <React.Fragment >
 
@@ -58,24 +60,26 @@ export default function Sidebar() {
                 <List>
                     {drawerItems.map((item) => (
                         <>
-                            {/* <Typography sx={{ marginLeft: "40px" }} variant="subtitle2" gutterBottom>
-                                {item.name}
 
-                            </Typography> */}
+
                             <Divider sx={{ marginTop: "20px", backgroundColor: "#FFFFFF" }} />
 
                             {
                                 item.items.map((item) => (
-                                    <ListItem key={item.name} >
-                                        <ListItemButton>
-                                            <ListItemIcon sx={{
-                                                color: "#FFFFFF"
-                                            }}>
-                                                <item.Icon />
-                                            </ListItemIcon>
-                                            <ListItemText primary={item.name} />
-                                        </ListItemButton>
-                                    </ListItem>
+                                    <NavLink to={item.link} className="links" style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    } >
+                                        <ListItem key={item.name} >
+                                            <ListItemButton>
+                                                <ListItemIcon sx={{
+                                                    color: "#FFFFFF"
+                                                }}>
+                                                    <item.Icon />
+                                                </ListItemIcon>
+                                                <ListItemText primary={item.name} />
+                                            </ListItemButton>
+                                        </ListItem>
+                                    </NavLink>
                                 ))
                             }
                         </>
