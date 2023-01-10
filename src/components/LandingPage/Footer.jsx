@@ -15,7 +15,7 @@ export default function Footer() {
       <div className='main'>
         <div className='sec'>
           <h2>POSITIVE MINDS COUNCELLING</h2>
-          <p id='number'>+254 700 000</p>
+          <p id='number'>+254 700 000 000</p>
         </div>
         <div className='sec'>
           <h2>WHO WE ARE</h2>
@@ -36,10 +36,12 @@ export default function Footer() {
             <li>Depression Therapy </li>
             <li>Grief Cpuncelling</li>
             <li>Marriage Coucelling</li>
-            <li>Addiction Coucelling</li>
+            <li>Addiction Councelling</li>
           </ul>
-
         </div>
+      </div>
+      <div className='bottom'>
+        <h3> Positive Minds Coucelling|All rights reserved </h3>
       </div>
     </StyledLanding>
   )
@@ -53,6 +55,8 @@ margin: auto;
 .socials{
   margin: 60px 0;
   text-align: center;
+  //width: 80%;
+  //margin: auto;
 
   & a{
     margin: 100px 20px 20px;
@@ -62,8 +66,7 @@ margin: auto;
 .main{
   display: flex;
   justify-content: space-between;
-  //sbackground: red;
-  width: 70%;
+  width: 80%;
   margin: auto;
 
     
@@ -72,6 +75,18 @@ margin: auto;
   //margin: 20px;
   font-size: 20px;
   color: white;
+}
+
+p{
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+.bottom{
+  text-align: center;
+  padding-bottom: 5px;
+  color: white;
+  font-size: small;
 }
 
 `
