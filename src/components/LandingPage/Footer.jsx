@@ -15,7 +15,7 @@ export default function Footer() {
       <div className='main'>
         <div className='sec'>
           <h2>POSITIVE MINDS COUNCELLING</h2>
-          <p>+254 700 000</p>
+          <p id='number'>+254 700 000</p>
         </div>
         <div className='sec'>
           <h2>WHO WE ARE</h2>
@@ -48,6 +48,7 @@ export default function Footer() {
 const StyledLanding = styled.div`
 background: #143E35;
 
+
 margin: auto;
 .socials{
   margin: 60px 0;
@@ -61,12 +62,16 @@ margin: auto;
 .main{
   display: flex;
   justify-content: space-between;
-  background: red;
+  //sbackground: red;
   width: 70%;
+  margin: auto;
+
+    
 }
 .sec{
-  margin: 20px;
-  font-size: 2opx;
+  //margin: 20px;
+  font-size: 20px;
+  color: white;
 }
 
 `
