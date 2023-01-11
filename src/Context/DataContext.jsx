@@ -4,7 +4,7 @@ const DataContext = React.createContext({});
 const DataProvider = ({ children }) => {
 
     const [open, setOpen] = useState(true);
-    const [loggedUser, setLoggedUser] = useState(false)
+    const [loggedUser, setLoggedUser] = useState(true)
 
     const handleDrawerOpen = () => {
         setOpen(true)
