@@ -1,0 +1,25 @@
+.business-details-image {
+    height: 200px;
+    margin-top: 50px;
+    width: 300px;
+  }
+  table {
+    border-collapse: separate !important;
+    border-spacing: 1em !important;
+    color: #0F4C75 !important;
+}
+.client-dashboard {
+    background-image: url("https://images.pexels.com/photos/32870/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
+    background-position: center
+
+}
+.dashboard-card {
+    background-image: url("../../assets//Rectangle.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center
+  
+}
