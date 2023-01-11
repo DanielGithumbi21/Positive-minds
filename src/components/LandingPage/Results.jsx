@@ -55,14 +55,13 @@ margin: 0 50;
   justify-content: space-between;
 }
 h1{
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   text-align: center;
   color: #143E35;
   
 }
 
 h2{
-  padding-bottom: 20px;
   color: #143E35;
 
 
@@ -78,7 +77,7 @@ p{
   background: white;
   flex: 1;
   border-radius: 15px;
-  padding: 50px 20px;
+  padding: 20px;
 }
 
 `

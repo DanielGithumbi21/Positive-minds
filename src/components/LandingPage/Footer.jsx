@@ -29,7 +29,7 @@ export default function Footer() {
 
         </div>
         <div className='sec'>
-          <h2>WHAt WE DO</h2>
+          <h2>WHAT WE DO</h2>
 
           <ul>
             <li>Anxiety Therapy </li>
@@ -40,7 +40,11 @@ export default function Footer() {
           </ul>
         </div>
       </div>
+      <div>
+        <hr />
+      </div>
       <div className='bottom'>
+
         <h3> Positive Minds Coucelling|All rights reserved </h3>
       </div>
     </StyledLanding>
@@ -66,7 +70,7 @@ margin: auto;
 .main{
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 70%;
   margin: auto;
 
     
@@ -87,6 +91,17 @@ p{
   padding-bottom: 5px;
   color: white;
   font-size: small;
+  padding-top: 40px;
+  
 }
+
+hr {
+        width: 100%;
+        height: 0.5px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #b7d0e2;
+      
+      }
 
 `
