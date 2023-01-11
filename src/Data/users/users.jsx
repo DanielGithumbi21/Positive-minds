@@ -1,5 +1,6 @@
 import { api } from "../Auth/Data";
 import authHeader from "../Auth/AuthHelper";
+import axios from "axios";
 
 const getProfile = async (setIsLoading) => {
     try {
@@ -15,6 +16,16 @@ const getProfile = async (setIsLoading) => {
     }
 };
 
+const beTherapist = (post, setOpen) => {
+    axios.post(`${api}/counselor_profiles`, post, {
+        headers: authHeader()
+    })
+        .then((data) => {
+            setOpen(true)
+
+        })
+}
+
 export {
-    getProfile
+    getProfile, beTherapist
 }
