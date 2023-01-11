@@ -4,6 +4,7 @@ const DataContext = React.createContext({});
 const DataProvider = ({ children }) => {
 
     const [open, setOpen] = useState(true);
+
     const [user, setUser] = useLocalStorage("user", null)
     const [loggedUser, setLoggedUser] = useLocalStorage("loggedUser", false)
 
