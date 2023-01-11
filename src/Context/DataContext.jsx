@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-
+import { useLocalStorage } from 'usehooks-ts'
 const DataContext = React.createContext({});
 const DataProvider = ({ children }) => {
 
     const [open, setOpen] = useState(true);
-    const [loggedUser, setLoggedUser] = useState(true)
+
+    const [user, setUser] = useLocalStorage("user", null)
+    const [loggedUser, setLoggedUser] = useLocalStorage("loggedUser", false)
 
     const handleDrawerOpen = () => {
         setOpen(true)
@@ -14,7 +16,7 @@ const DataProvider = ({ children }) => {
     }
 
     return (
-        <DataContext.Provider value={{ open, handleDrawerClose, handleDrawerOpen, loggedUser }}>
+        <DataContext.Provider value={{ open, handleDrawerClose, handleDrawerOpen, loggedUser, user, setUser, setLoggedUser }}>
             {children}
         </DataContext.Provider>
     );

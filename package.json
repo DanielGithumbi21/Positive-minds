@@ -23,11 +23,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
-    "styled-components": "^5.3.6",
     "@iconscout/react-unicons": "^1.1.6",
     "apexcharts": "^3.35.0",
     "react-apexcharts": "^1.4.0",
     "react-circular-progressbar": "^2.0.4"
+    "usehooks-ts": "^2.9.1",
+    "react-social-icons": "^5.15.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import image1 from "../../assets/image1.jpg"
 import Navbar from './Navbar';
 import Icons from './Icons';
-import Results from './Results';
 import Tips from './Tips';
+import Results from './Results';
 import Work from './Work';
+import Footer from './Footer';
 
 export default function LandingPage() {
     return (
@@ -19,9 +20,10 @@ export default function LandingPage() {
             </HeroDiv>
 
             <Icons />
-            <Results />
             <Tips />
+            <Results />
             <Work />
+            <Footer />
         </main>
     )
 }
