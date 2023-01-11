@@ -9,6 +9,7 @@ import { DataContext } from '../Context/DataContext';
 import { Route, Routes } from 'react-router';
 import Dashboard from '../components/Clients/Dashboard';
 import Profile from '../components/Clients/Profile';
+import BeTherapist from '../components/Clients/BeTherapist';
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -61,6 +62,7 @@ const RoutesPage = () => {
                 <Routes>
                     <Route path='/client' element={<Dashboard />} />
                     <Route path='/client/profile' element={<Profile />} />
+                    <Route path='/client/be-a-therapist' element={<BeTherapist />} />
                 </Routes>
 
             </Main>
