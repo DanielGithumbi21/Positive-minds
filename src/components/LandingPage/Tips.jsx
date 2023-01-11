@@ -103,13 +103,13 @@ const StyledDiv = styled.div`
         margin-inline: auto;
     }
     .section-a{
-        height: 400px;
+        //height: 400px;
         
     }
     
         .section-b{
         padding: 0;
-        height: 400px;
+        //height: 400px;
         
         
     }
