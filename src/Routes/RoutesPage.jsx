@@ -8,6 +8,7 @@ import TopAppBar from '../components/AppBar/AppBar';
 import { DataContext } from '../Context/DataContext';
 import { Route, Routes } from 'react-router';
 import Dashboard from '../components/Clients/Dashboard';
+import Profile from '../components/Clients/Profile';
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -53,10 +54,13 @@ const RoutesPage = () => {
                 )
             }
 
-            <Main open={open}>
+            <Main open={open} sx={{
+                padding: "50px"
+            }}>
                 <DrawerHeader />
                 <Routes>
                     <Route path='/client' element={<Dashboard />} />
+                    <Route path='/client/profile' element={<Profile />} />
                 </Routes>
 
             </Main>

@@ -48,7 +48,7 @@ const drawerItems = [
       {
         name: "My Profile",
         Icon: HourglassFullIcon,
-        link: "/",
+        link: "/client/profile",
       },
       {
         name: "Logout",

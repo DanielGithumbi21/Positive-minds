@@ -29,5 +29,5 @@ const loginUser = (formData, setLoggedUser, setUser, navigate, setIsLoading, set
 }
 
 export {
-    registerUser, loginUser
+    registerUser, loginUser, api
 }
