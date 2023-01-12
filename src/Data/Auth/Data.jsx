@@ -9,7 +9,8 @@ const registerUser = (formData, setLoggedUser, setUser, navigate, setIsLoading, 
             setIsLoading(false)
             setLoggedUser(true)
             setUser(data.data)
-            navigate("/client")
+            data.data.user.is_counselor ? navigate("/counsellor") : navigate("/client")
+
         })
 }
 
@@ -20,7 +21,7 @@ const loginUser = (formData, setLoggedUser, setUser, navigate, setIsLoading, set
             setIsLoading(false)
             setLoggedUser(true)
             setUser(data.data)
-            navigate("/client")
+            data.data.user.is_counselor ? navigate("/counsellor") : navigate("/client")
         })
         .catch((error) => {
             setIsLoading(false)
