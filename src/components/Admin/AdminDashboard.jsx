@@ -1,9 +1,12 @@
 import React from 'react'
-
+import './AdminDashbord.css'
+import MainDash from '../MainDash/MainDash'
 function AdminDashboard() {
   return (
-    <div>
-      <h1>Admin</h1>
+    <div className='AdminDashboard'>
+      <div className='AdminGlass'>
+        <MainDash/>
+      </div>
     </div>
   )
 }
