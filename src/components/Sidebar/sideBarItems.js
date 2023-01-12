@@ -5,7 +5,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
-const drawerItems = [
+const clientItems = [
   {
     name: "",
     items: [
@@ -58,4 +58,48 @@ const drawerItems = [
     ],
   },
 ];
-export { drawerItems };
+
+const counsellorItems = [
+  {
+    name: "",
+    items: [
+      {
+        name: "Dashboard",
+        Icon: DashboardIcon,
+        link: "/counsellor",
+      },
+    ],
+  },
+  {
+    name: "Sessions",
+    items: [
+      {
+        name: "Available Sessions",
+        Icon: EmailIcon,
+        link: "/",
+      },
+      {
+        name: "Create A Session",
+        Icon: EmailIcon,
+        link: "/",
+      },
+    ],
+  },
+
+  {
+    name: "Account",
+    items: [
+      {
+        name: "My Profile",
+        Icon: HourglassFullIcon,
+        link: "/client/profile",
+      },
+      {
+        name: "Logout",
+        Icon: PowerSettingsNewIcon,
+        link: "/",
+      },
+    ],
+  },
+];
+export { clientItems, counsellorItems };
