@@ -8,9 +8,8 @@ import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 const Dashboard = () => {
     const [sessions, setSessions] = useState([]);
     const [loading, setLoading] = useState(false);
-    const today = new Date().toISOString().slice(0,10);
-    const sessionsToday = data.filter(session => session.time.slice(0,10) === today);
-
+    const [sessionsToday, setSessionsToday] = useState([]);
+    
     useEffect(() => {
         setLoading(true);
         fetch('http://127.0.0.1:3000/sessions', {
@@ -21,6 +20,9 @@ const Dashboard = () => {
         .then(response => response.json())
         .then(data => {
           setSessions(data);
+          const today = new Date().toISOString().slice(0,10);
+          const sessionsToday = data.filter(session => session.time.slice(0,10) === today);
+          setSessionsToday(sessionsToday);
           setLoading(false);
         })
         .catch(error => {
@@ -71,7 +73,7 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Available Sessions</h6>
-                                        <h6 className='mb-2'>5</h6>
+                                        <h6 className='mb-2'>{sessionsToday.length}</h6>
                                         <button className="btn btn-success btn-sm">View</button>
 
                                     </div>
