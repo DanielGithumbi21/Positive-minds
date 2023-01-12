@@ -10,6 +10,7 @@ import { Route, Routes } from 'react-router';
 import Dashboard from '../components/Clients/Dashboard';
 import Profile from '../components/Clients/Profile';
 import BeTherapist from '../components/Clients/BeTherapist';
+import PrivateRoute from './PrivateRoute';
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -60,9 +61,11 @@ const RoutesPage = () => {
             }}>
                 <DrawerHeader />
                 <Routes>
-                    <Route path='/client' element={<Dashboard />} />
-                    <Route path='/client/profile' element={<Profile />} />
-                    <Route path='/client/be-a-therapist' element={<BeTherapist />} />
+                    <Route element={<PrivateRoute />}>
+                        <Route path='/client' element={<Dashboard />} />
+                        <Route path='/client/profile' element={<Profile />} />
+                        <Route path='/client/be-a-therapist' element={<BeTherapist />} />
+                    </Route>
                 </Routes>
 
             </Main>
