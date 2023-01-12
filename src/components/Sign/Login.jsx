@@ -156,7 +156,7 @@ const Login = () => {
 
 
                             </div>
-                            <button className="btn btn-primary btn-md mb-3" disabled={isLoading ? true : false} >  Register</button>
+                            <button className="btn btn-success btn-md mb-3" disabled={isLoading ? true : false} >  Register</button>
 
                         </form>
                         :
@@ -189,7 +189,7 @@ const Login = () => {
                                     />
 
                                 </div>
-                                <button className="btn btn-primary btn-md mb-3" disabled={isLoading ? true : false}>  Login</button>
+                                <button className="btn btn-success btn-md mb-3" disabled={isLoading ? true : false}>  Login</button>
 
                             </form>
                         </React.Fragment>
@@ -197,7 +197,7 @@ const Login = () => {
 
 
                 <div>
-                    <button className="btn btn-outline-primary btn-md mb-3" onClick={switchMode}>{isSignup ? "Already have an account? Login" : "Don't have an account? Register"} </button>
+                    <button className="btn btn-outline-success btn-md mb-3" onClick={switchMode}>{isSignup ? "Already have an account? Login" : "Don't have an account? Register"} </button>
                 </div>
 
             </Card>

@@ -32,7 +32,7 @@ const drawerItems = [
       {
         name: "Become a Therapist",
         Icon: PersonIcon,
-        link: "/",
+        link: "/client/be-a-therapist",
       },
       {
         name: "Book a Private Session",
