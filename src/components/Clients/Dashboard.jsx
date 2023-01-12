@@ -1,10 +1,35 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import "./Profile.css"
 import { Card } from '@mui/material'
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 
 const Dashboard = () => {
+    const [sessions, setSessions] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const today = new Date().toISOString().slice(0,10);
+    const sessionsToday = data.filter(session => session.time.slice(0,10) === today);
+
+    useEffect(() => {
+        setLoading(true);
+        fetch('http://127.0.0.1:3000/sessions', {
+          headers: {
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxN30.iM61VzH8sbN4fBrTg8pJknOi-BGdOdQrh66AK1cxIpM`
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          setSessions(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error(error);
+          setLoading(false);
+        });
+      }, []);
+    
+    
     return (
         <React.Fragment>
             <div className="container-fluid client-dashboard">
