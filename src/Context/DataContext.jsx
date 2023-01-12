@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useLocalStorage } from 'usehooks-ts'
+import useMediaQuery from '@mui/material/useMediaQuery';
 const DataContext = React.createContext({});
 const DataProvider = ({ children }) => {
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
+
+    const smallScreen = useMediaQuery('(max-width:800px)');
+
 
     const [user, setUser] = useLocalStorage("user", null)
     const [loggedUser, setLoggedUser] = useLocalStorage("loggedUser", false)
@@ -16,7 +20,7 @@ const DataProvider = ({ children }) => {
     }
 
     return (
-        <DataContext.Provider value={{ open, handleDrawerClose, handleDrawerOpen, loggedUser, user, setUser, setLoggedUser }}>
+        <DataContext.Provider value={{ open, handleDrawerClose, handleDrawerOpen, loggedUser, user, setUser, setLoggedUser, smallScreen }}>
             {children}
         </DataContext.Provider>
     );
