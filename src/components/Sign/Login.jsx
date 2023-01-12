@@ -16,6 +16,7 @@ const Login = () => {
     const [formData, setFormData] = useState(initialState)
     const { setUser, setLoggedUser } = useContext(DataContext)
     const [isLoading, setIsLoading] = useState(false)
+    const { smallScreen } = useContext(DataContext)
     const [error, setError] = useState('')
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -33,8 +34,9 @@ const Login = () => {
 
     return (
         <Container sx={{
-            width: "40%",
-            marginTop: "9%"
+
+            width: smallScreen ? "90%" : "40%",
+            marginTop: smallScreen ? "30%" : "9%"
         }}>
             <Card sx={{
                 textAlign: "center",

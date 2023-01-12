@@ -1,5 +1,5 @@
-const api = "http://localhost:3000"
 import axios from "axios"
+const api = "https://positive-minds-production.up.railway.app"
 
 
 const registerUser = (formData, setLoggedUser, setUser, navigate, setIsLoading, setError) => {

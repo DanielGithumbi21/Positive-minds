@@ -89,34 +89,37 @@ export default function Sidebar() {
                                 ))}
                             </React.Fragment>
                             :
-                            <React.Fragment>
-                                {clientItems.map((item) => (
-                                    <>
+                            user.user.is_admin ?
+                                ""
+                                :
+                                <React.Fragment>
+                                    {clientItems.map((item) => (
+                                        <>
 
 
-                                        <Divider sx={{ marginTop: "20px", backgroundColor: "#FFFFFF" }} />
+                                            <Divider sx={{ marginTop: "20px", backgroundColor: "#FFFFFF" }} />
 
-                                        {
-                                            item.items.map((item) => (
-                                                <NavLink to={item.link} className="links" style={({ isActive }) =>
-                                                    isActive ? activeStyle : undefined
-                                                } >
-                                                    <ListItem key={item.name} >
-                                                        <ListItemButton>
-                                                            <ListItemIcon sx={{
-                                                                color: "#FFFFFF"
-                                                            }}>
-                                                                <item.Icon />
-                                                            </ListItemIcon>
-                                                            <ListItemText primary={item.name} />
-                                                        </ListItemButton>
-                                                    </ListItem>
-                                                </NavLink>
-                                            ))
-                                        }
-                                    </>
-                                ))}
-                            </React.Fragment>
+                                            {
+                                                item.items.map((item) => (
+                                                    <NavLink to={item.link} className="links" style={({ isActive }) =>
+                                                        isActive ? activeStyle : undefined
+                                                    } >
+                                                        <ListItem key={item.name} >
+                                                            <ListItemButton>
+                                                                <ListItemIcon sx={{
+                                                                    color: "#FFFFFF"
+                                                                }}>
+                                                                    <item.Icon />
+                                                                </ListItemIcon>
+                                                                <ListItemText primary={item.name} />
+                                                            </ListItemButton>
+                                                        </ListItem>
+                                                    </NavLink>
+                                                ))
+                                            }
+                                        </>
+                                    ))}
+                                </React.Fragment>
                     }
 
                 </List>
