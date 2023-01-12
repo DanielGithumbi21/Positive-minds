@@ -57,7 +57,7 @@ background: #143E35;
 
 margin: auto;
 .socials{
-  margin: 60px 0;
+  margin: 3.75rem 0;
   text-align: center;
   //width: 80%;
   //margin: auto;
@@ -82,7 +82,7 @@ margin: auto;
 }
 
 p{
-  font-size: xx-large;
+  font-size: 2rem;
   font-weight: 700;
 }
 
