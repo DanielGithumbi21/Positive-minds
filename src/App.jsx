@@ -6,7 +6,7 @@ import LandingPage from './components/LandingPage/LandingPage'
 import Login from './components/Sign/Login'
 import Admin from './components/Admin/AdminDashboard'
 import "bootstrap/dist/css/bootstrap.min.css"
-import AdminDashboard from './components/Admin/AdminDashboard'
+// import AdminDashboard from './components/Admin/AdminDashboard'
 const App = () => {
   return (
 
@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<AdminDashboard/>} />
+        <Route path="/admin" element={<Admin/>} />
       </Routes>
       <RoutesPage />
     </React.Fragment>
