@@ -11,6 +11,7 @@ import Dashboard from '../components/Clients/Dashboard';
 import Profile from '../components/Clients/Profile';
 import BeTherapist from '../components/Clients/BeTherapist';
 import PrivateRoute from './PrivateRoute';
+import CounsellorDashboard from '../components/counsellors/Dashboard';
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -65,6 +66,7 @@ const RoutesPage = () => {
                         <Route path='/client' element={<Dashboard />} />
                         <Route path='/client/profile' element={<Profile />} />
                         <Route path='/client/be-a-therapist' element={<BeTherapist />} />
+                        <Route path="/counsellor" element={<CounsellorDashboard />} />
                     </Route>
                 </Routes>
 
