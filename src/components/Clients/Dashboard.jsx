@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Profile.css"
 import { Card } from '@mui/material'
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
+import { getSessions } from '../../Data/Sessions/sessions';
+
 
 const Dashboard = () => {
+    const [sessions, setSessions] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        setIsLoading(true);
+        getSessions(setIsLoading, setSessions).then(data => {
+          setSessions(data);
+          setIsLoading(false);
+        });
+      }, []);
+    
+
     return (
         <React.Fragment>
             <div className="container-fluid client-dashboard">
