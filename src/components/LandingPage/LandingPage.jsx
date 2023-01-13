@@ -13,7 +13,7 @@ export default function LandingPage() {
         <main>
 
             <Navbar />
-            <HeroDiv style={{ background: `url(${image1}) center center/cover` }}>
+            <HeroDiv style={{}}>
                 <h1 className='landing-text'>Expert-Led Online Group Therapy for Everyone</h1>
                 <p>Join an online therapy group, and be supported every step of the way.</p>
                 <button>Get Started</button>
@@ -31,6 +31,8 @@ export default function LandingPage() {
 const HeroDiv = styled.div`
     width: 100%;
     height: 825px;
+    background: url(${image1}) center center / cover;
+
    
 
     .landing-text{
@@ -81,6 +83,52 @@ button{
     font-size: 26px;
     line-height: 31px;
     color: #FFFFFF;
+}
+
+@media (max-width:920px){
+    background: rgb(20,62,53,1);
+    color: #FFFFFF;
+    //align-items: center;
+    .landing-text{
+
+    font-family: 'Inter';
+    color: #FFFFFF;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5rem;
+    top: 200px;
+    line-height: 58px;
+    //background:red;
+    width: 25rem;
+    height: 20vh;
+
+    }
+
+    p{
+        font-family: 'Inter';
+    
+    height: 20vh;
+    color: #fff;
+    //background: orange;
+    /* margin-top: 90px; */
+    top: 400px;
+    width: 25rem;
+    line-height: 58px;
+    margin-left: -10px;
+
+    }
+
+    button{
+        /* margin-top: 130px; */
+        bottom:0.5px;
+        left: 68px;
+        background: rgba(229,148,56,1);
+        border-color: #FFFFFF;
+    }
+
+    
+    
 }
     
 `
