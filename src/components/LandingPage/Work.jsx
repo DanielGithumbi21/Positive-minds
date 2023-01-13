@@ -46,5 +46,12 @@ background: #143E35;
 border: 2px solid #143E35;
 }
 
+@media (max-width:920px) {
+  button{
+    width: 20rem;
+  }
+
+  
+}
 
 `
