@@ -12,10 +12,12 @@ const Dashboard = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        getSessions(setIsLoading, setSessions).then(data => {
-          setSessions(data);
-          setIsLoading(false);
-        });
+        const fetchData = async() => {
+            const data = await getSessions(setSessions, setIsLoading);
+            setIsLoading(false);
+            
+        }
+        fetchData();
       }, []);
     
 
@@ -60,7 +62,7 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Available Sessions</h6>
-                                        <h6 className='mb-2'>5</h6>
+                                        <h6 className='mb-2'>{sessions && sessions.length ? sessions.length : 'Loading...'}</h6>                                        
                                         <button className="btn btn-success btn-sm">View</button>
 
                                     </div>
