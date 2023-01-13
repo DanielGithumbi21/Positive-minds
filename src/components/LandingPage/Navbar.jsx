@@ -16,14 +16,14 @@ export default function Navbar() {
 
                 <div className='links'>
                     <li>
-                        <Link to="/home">Home</Link>
+                        <Link id='none' to="/home">Home</Link>
                     </li>
 
                     <li>
-                        <Link to="/councelors">Councelors</Link>
+                        <Link id='none' to="/councelors">Councelors</Link>
                     </li>
                     <li>
-                        <button>
+                        <button id='login'>
                             <Link to="/login">Login</Link>
                         </button>
                     </li>
@@ -102,4 +102,32 @@ const StyledDiv = styled.div`
     }
     }
    
+   @media (max-width: 920px) {
+    .navbar{
+        //display: block;
+    }
+    #none {
+        display: none;
+    }
+    .logo{
+        font-size: 1.4rem;
+        margin-right: 10px;
+        margin-right: 1px;
+    }
+
+    button{
+        width: 110px;
+        height: 40px;
+        font-size:12px;
+        font-weight: 500;
+        border-radius: 15px;
+        background:#fff;
+        border: 2px solid rgba(20, 62, 53, 1);
+
+    }
+
+    #login{
+        margin-right: 20px;
+    }
+   }
 `
