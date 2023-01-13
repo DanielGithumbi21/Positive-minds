@@ -9,13 +9,19 @@ import { getSessions } from '../../Data/Sessions/sessions';
 const Dashboard = () => {
     const [sessions, setSessions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [sessionsInProgress, setSessionsInProgress] = useState([]);
 
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async() => {
             const data = await getSessions(setSessions, setIsLoading);
+            const sessionsInProgress = data.filter(session => {
+                const sessionTime = new Date(session.time);
+                const currentTime = new Date();
+                return currentTime >= new Date(sessionTime - 15 * 60 * 1000) && currentTime <= new Date(sessionTime + 15 * 60 * 1000)
+            });
+            setSessionsInProgress(sessionsInProgress);
             setIsLoading(false);
-            
         }
         fetchData();
       }, []);
@@ -88,7 +94,7 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Sessions in progress</h6>
-                                        <h6 className='mb-2'>2</h6>
+                                        <h6 className='mb-2'>{sessionsInProgress.length}</h6>
                                         <button className="btn btn-success btn-sm">View</button>
 
                                     </div>
