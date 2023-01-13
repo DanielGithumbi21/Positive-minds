@@ -103,6 +103,8 @@ const StyledDiv = styled.div`
     }
    
    @media (max-width: 920px) {
+    height:5.25rem;
+
     .navbar{
         //display: block;
     }
@@ -113,18 +115,20 @@ const StyledDiv = styled.div`
         font-size: 1.4rem;
         margin-right: 10px;
         margin-right: 1px;
+        padding-left: 1rem;
     }
 
     button{
         width: 110px;
         height: 40px;
         font-size:12px;
-        font-weight: 500;
+        font-weight: 400;
         border-radius: 15px;
         background:#fff;
         border: 2px solid rgba(20, 62, 53, 1);
 
     }
+    .links{padding-right: 0.5rem;}
 
     #login{
         margin-right: 20px;

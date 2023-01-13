@@ -13,7 +13,7 @@ export default function Footer() {
         <SocialIcon network="linkedin" bgColor="#E59438" />
       </div>
       <div className='main'>
-        <div className='sec'>
+        <div className='sec-a'>
           <h2>POSITIVE MINDS COUNCELLING</h2>
           <p id='number'>+254 700 000 000</p>
         </div>
@@ -81,6 +81,11 @@ margin: auto;
   color: white;
 }
 
+.sec-a{
+  font-size: 1.25;
+  color: white;
+}
+
 p{
   font-size: 2rem;
   font-weight: 700;
@@ -102,6 +107,29 @@ hr {
         margin-right: auto;
         background-color: #b7d0e2;
       
+      }
+
+      @media (max-width:920px){
+        .sec{
+          display:none;
+        }
+
+        .sec-a{
+          width: 100%;
+          padding: 0;
+          font-size: 0.8rem;
+          //padding-left: 1.2rem;
+          margin-top: -35px;
+          margin-bottom: 3.2rem;
+          //background: red;
+          text-align: center;
+
+
+        }
+
+        #number{
+          font-size: 1rem;
+        }
       }
 
 `
