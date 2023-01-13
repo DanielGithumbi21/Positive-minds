@@ -2,15 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+
 export default function Navbar() {
     return (
         <StyledDiv>
             <div className='navbar'>
 
                 <div>
-                    <li className='logo'>
+                    <div className='logo'>
                         <Link to="/logo">Positive.Minds</Link>
-                    </li>
+                    </div>
                 </div>
 
                 <div className='links'>
@@ -38,9 +39,9 @@ export default function Navbar() {
 }
 
 const StyledDiv = styled.div`
-        height:100px;
+        height:6.25rem;
         display:flex;
-    
+   
 
     .navbar{
         list-style:none;
@@ -58,7 +59,7 @@ const StyledDiv = styled.div`
         align-items:center;
         width:55%;
         padding-right:3rem;
-        font-size:24px;
+        font-size:1.5rem;
         font-weight: 500;
          }
     .links a{
@@ -71,7 +72,7 @@ const StyledDiv = styled.div`
         padding-left:3rem;
         font-style: normal;
         font-weight: 600;
-        font-size: 40px;
+        font-size: 2.5rem;
         line-height: 54px;
 
     }
@@ -79,7 +80,7 @@ const StyledDiv = styled.div`
     .logo a{
         text-decoration:none;
         color:rgba(20, 62, 53, 1);
-    
+   
     }
     button{
         width: 220px;
@@ -100,4 +101,5 @@ const StyledDiv = styled.div`
         color: #fff;
     }
     }
+   
 `

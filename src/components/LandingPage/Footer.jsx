@@ -57,13 +57,13 @@ background: #143E35;
 
 margin: auto;
 .socials{
-  margin: 3.75rem 0;
+  /* margin: 3.75rem 0; */
   text-align: center;
   //width: 80%;
   //margin: auto;
 
   & a{
-    margin: 100px 20px 20px;
+    margin: 5rem 1.25rem ;
   }
 
 }
@@ -77,7 +77,7 @@ margin: auto;
 }
 .sec{
   //margin: 20px;
-  font-size: 20px;
+  font-size: 1.25;
   color: white;
 }
 
@@ -88,10 +88,10 @@ p{
 
 .bottom{
   text-align: center;
-  padding-bottom: 5px;
+  padding-bottom: 0.313rem;
   color: white;
   font-size: small;
-  padding-top: 40px;
+  padding-top: 2.5rem;
   
 }
 
