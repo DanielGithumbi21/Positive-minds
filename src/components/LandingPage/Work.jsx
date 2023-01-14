@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export default function Work() {
   return (
     <StyledDiv>
-      <div>
+      <div className='content'>
         <p>Are you a Proffesional Therapist? Work with us!</p>
         <button>Get Started Here</button>
       </div>
@@ -44,6 +44,14 @@ height: 90px;
 
 background: #143E35;
 border: 2px solid #143E35;
+}
+
+@media (max-width:920px) {
+  button{
+    width: 20rem;
+  }
+
+  
 }
 
 `
