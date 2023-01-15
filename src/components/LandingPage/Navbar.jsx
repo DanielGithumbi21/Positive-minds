@@ -10,27 +10,28 @@ export default function Navbar() {
 
                 <div>
                     <div className='logo'>
-                        <Link to="/logo">Positive.Minds</Link>
+                        <Link to="/">Positive Minds</Link>
                     </div>
                 </div>
 
                 <div className='links'>
                     <li>
-                        <Link id='none' to="/home">Home</Link>
+                        <Link id='none' to="/client">Home</Link>
                     </li>
 
                     <li>
-                        <Link id='none' to="/councelors">Councelors</Link>
+                        <Link id='none' to="/client">Counsellors</Link>
                     </li>
                     <li>
-                        <button id='login'>
-                            <Link to="/login">Login</Link>
-                        </button>
+                        <Link to="/login">
+                            <button className="btn btn-md btn-outline-success">Login</button>
+                        </Link>
+
                     </li>
                     <li>
-                        <button className='filler'>
-                            <Link to="/find your group">Find your group</Link>
-                        </button>
+                        <Link to="/login">
+                            <button className="btn btn-success btn-md">Find Your Group</button>
+                        </Link>
                     </li>
                 </div>
             </div>
@@ -72,7 +73,7 @@ const StyledDiv = styled.div`
         padding-left:3rem;
         font-style: normal;
         font-weight: 600;
-        font-size: 2.5rem;
+        font-size: 2.0rem;
         line-height: 54px;
 
     }
@@ -83,12 +84,10 @@ const StyledDiv = styled.div`
    
     }
     button{
-        width: 220px;
-        height: 60px;
-        font-size:24px;
+        
+        font-size:20px;
         font-weight: 500;
         border-radius: 15px;
-        background:#fff;
         border: 2px solid rgba(20, 62, 53, 1);
 
 
@@ -119,12 +118,10 @@ const StyledDiv = styled.div`
     }
 
     button{
-        width: 110px;
-        height: 40px;
+   ;
         font-size:12px;
         font-weight: 400;
         border-radius: 15px;
-        background:#fff;
         border: 2px solid rgba(20, 62, 53, 1);
 
     }

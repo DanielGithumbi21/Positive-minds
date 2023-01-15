@@ -3,34 +3,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import styled from 'styled-components'
 import { faCalendarDays, faHeartCircleBolt, faPeopleCarryBox } from '@fortawesome/free-solid-svg-icons';
-
 export default function Icons() {
     return (
         <StyledSection>
-            <div className='info'>
+            <div className='info mb-3'>
                 <div className='icon-a'>
                     <FontAwesomeIcon icon={faCalendarDays} />
                 </div>
-                <div className='cont'>
+                <div className='cont mb-3'>
                     <h2>Book Your Sesssion Today</h2>
                     <p>Our online client portal makes getting started with us convenient and secure.</p>
                 </div>
 
             </div>
-            <div className='info-b'>
+            <div className='info-b mb-3'>
 
                 <div className='icon-b'>
                     <FontAwesomeIcon icon={faPeopleCarryBox} />
                 </div>
 
                 <div className='cont'>
-                    <h2>Belong to a Community</h2>
+                    <h2 className='mt-3'>Belong to a Community</h2>
                     <p>Be part of a group of people
                         who have the same experiences</p>
                 </div>
             </div>
 
-            <div className='info'>
+            <div className='info mb-3'>
                 <div className='icon-c'>
                     <FontAwesomeIcon icon={faHeartCircleBolt} />
                 </div>
