@@ -76,12 +76,12 @@ const counsellorItems = [
       {
         name: "Available Sessions",
         Icon: EmailIcon,
-        link: "/",
+        link: "/counsellor/view-sessions",
       },
       {
         name: "Create A Session",
         Icon: EmailIcon,
-        link: "/",
+        link: "/counsellor/create-session",
       },
     ],
   },
