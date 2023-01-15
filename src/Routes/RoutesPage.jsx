@@ -12,6 +12,9 @@ import Profile from '../components/Clients/Profile';
 import BeTherapist from '../components/Clients/BeTherapist';
 import PrivateRoute from './PrivateRoute';
 import CounsellorDashboard from '../components/counsellors/Dashboard';
+import CreateSession from '../components/counsellors/CreateSession';
+import ViewSessions from '../components/counsellors/ViewSessions';
+import SessionsDetails from '../components/counsellors/SessionsDetails';
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -67,6 +70,9 @@ const RoutesPage = () => {
                         <Route path='/client/profile' element={<Profile />} />
                         <Route path='/client/be-a-therapist' element={<BeTherapist />} />
                         <Route path="/counsellor" element={<CounsellorDashboard />} />
+                        <Route path="/counsellor/create-session" element={<CreateSession />} />
+                        <Route path="/counsellor/view-sessions" element={<ViewSessions />} />
+                        <Route path="/session/:id/details" element={<SessionsDetails />} />
                     </Route>
                 </Routes>
 
