@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
 import { Box } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import Typography from '@mui/material/Typography';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Sidebar from '../components/Sidebar/Sidebar';
 import TopAppBar from '../components/AppBar/AppBar';
 import { DataContext } from '../Context/DataContext';
@@ -15,6 +14,8 @@ import CounsellorDashboard from '../components/counsellors/Dashboard';
 import CreateSession from '../components/counsellors/CreateSession';
 import ViewSessions from '../components/counsellors/ViewSessions';
 import SessionsDetails from '../components/counsellors/SessionsDetails';
+import Appointments from '../components/Clients/Appointments';
+import BookAppointment from '../components/Clients/BookAppointment';
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -69,9 +70,11 @@ const RoutesPage = () => {
                         <Route path='/client' element={<Dashboard />} />
                         <Route path='/client/profile' element={<Profile />} />
                         <Route path='/client/be-a-therapist' element={<BeTherapist />} />
+                        <Route path='/client/appointments' element={<Appointments />} />
+                        <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
                         <Route path="/counsellor" element={<CounsellorDashboard />} />
                         <Route path="/counsellor/create-session" element={<CreateSession />} />
-                        <Route path="/counsellor/view-sessions" element={<ViewSessions />} />
+                        <Route path="/view-sessions" element={<ViewSessions />} />
                         <Route path="/session/:id/details" element={<SessionsDetails />} />
                     </Route>
                 </Routes>

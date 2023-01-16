@@ -16,6 +16,20 @@ const getProfile = async (setIsLoading) => {
     }
 };
 
+const getCounselorProfile = async (setIsLoading) => {
+    try {
+        setIsLoading(true)
+        const response = await fetch(`${api}/counselor_profiles`, {
+            headers: authHeader(),
+        });
+        const data = await response.json();
+        setIsLoading(false);
+        return data;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 const beTherapist = (post, setOpen) => {
     axios.post(`${api}/counselor_profiles`, post, {
         headers: authHeader()
@@ -26,6 +40,22 @@ const beTherapist = (post, setOpen) => {
         })
 }
 
+const bookAppointment = async (post, setIsLoading) => {
+    try {
+        setIsLoading(true)
+        axios.post(`${api}/appointments`, post, {
+            headers: authHeader()
+        })
+            .then((data) => {
+                setIsLoading(false)
+                console.log(data)
+            })
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 export {
-    getProfile, beTherapist
+    getProfile, beTherapist, getCounselorProfile, bookAppointment
 }

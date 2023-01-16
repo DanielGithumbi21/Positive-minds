@@ -22,7 +22,7 @@ const clientItems = [
       {
         name: "View Available Sessions",
         Icon: EmailIcon,
-        link: "/",
+        link: "/view-sessions",
       },
       {
         name: "Calendar",
@@ -37,7 +37,7 @@ const clientItems = [
       {
         name: "Book a Private Session",
         Icon: BookOnlineIcon,
-        link: "/",
+        link: "/client/appointments",
       },
     ],
   },
@@ -76,7 +76,7 @@ const counsellorItems = [
       {
         name: "Available Sessions",
         Icon: EmailIcon,
-        link: "/counsellor/view-sessions",
+        link: "/view-sessions",
       },
       {
         name: "Create A Session",
