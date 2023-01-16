@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Profile.css"
 import { Card } from '@mui/material'
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
+import { getSessions } from '../../Data/users/counsellors';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const Dashboard = () => {
+    const navigate = useNavigate()
+    const [sessions, setSessions] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        getSessions(setIsLoading).then((data) => {
+            setSessions(data)
+        })
+    }, [])
+
+    const availableSessions = sessions.filter((session) => {
+        return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0
+    })
+
+    console.log(availableSessions)
     return (
         <React.Fragment>
             <div className="container-fluid client-dashboard">
@@ -21,7 +41,7 @@ const Dashboard = () => {
                             You just need a community
                             to share love...
                         </h3>
-                        <button className="btn btn-success btn-lg">Be a Therapist</button>
+                        <button className="btn btn-success btn-lg" onClick={(() => navigate("/client/be-a-therapist"))}>Be a Therapist</button>
                     </div>
                 </div>
 
@@ -46,8 +66,8 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Available Sessions</h6>
-                                        <h6 className='mb-2'>5</h6>
-                                        <button className="btn btn-success btn-sm">View</button>
+                                        <h6 className='mb-2'>{availableSessions.length}</h6>
+                                        <button className="btn btn-success btn-sm" onClick={(() => navigate("/view-sessions"))}>View</button>
 
                                     </div>
                                     <div className="col-lg-2">
@@ -72,8 +92,8 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Sessions in progress</h6>
-                                        <h6 className='mb-2'>2</h6>
-                                        <button className="btn btn-success btn-sm">View</button>
+                                        <h6 className='mb-2'>0</h6>
+                                        <button className="btn btn-success btn-sm" onClick={(() => navigate("/view-sessions"))}>View</button>
 
                                     </div>
                                     <div className="col-lg-2">
@@ -117,41 +137,30 @@ const Dashboard = () => {
                             <th scope="col">Id</th>
                             <th scope="col">Theme</th>
                             <th scope="col">Therapist</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Location</th>
 
                         </tr>
                     </thead>
 
-                    <tbody>
-                        <tr>
-                            <th scope="row" >121</th>
-                            <td>Alcohol</td>
-                            <td>John Doe</td>
-                            <td>In progress</td>
+                    {
+                        availableSessions.slice(0, 3).map((session) => (
+                            <tbody>
+                                <tr>
+
+
+                                    <th scope="row" >{session.id}</th>
+                                    <td>{session.topic}</td>
+                                    <td>{session.counselor_profile.name}</td>
+                                    <td>{session.location}</td>
 
 
 
-                        </tr>
-                        <tr>
-                            <th scope="row" >123</th>
-                            <td>Addiction</td>
-                            <td>John Doe</td>
-                            <td>To start</td>
 
+                                </tr>
 
-
-                        </tr>
-                        <tr>
-                            <th scope="row" >124</th>
-                            <td>Obsession</td>
-                            <td>John Doe</td>
-                            <td>In progress</td>
-
-
-
-                        </tr>
-
-                    </tbody>
+                            </tbody>
+                        ))
+                    }
 
 
                 </table>
