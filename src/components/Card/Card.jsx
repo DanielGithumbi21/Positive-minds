@@ -1,30 +1,32 @@
 import React from 'react'
-
-import { AnimateSharedLayout } from "framer-motion"
+import './CardAdmin.css'
+import { LayoutGroup,motion } from "framer-motion";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+
 const Card = (props) => {
   return (
-  <AnimateSharedLayout>
+  <LayoutGroup>
     <CompactCard param = {props}/>
 
-  </AnimateSharedLayout>
+  </LayoutGroup>
   )
 }
 
 function CompactCard ({param}){
     return(
-        <div className='CompactCard'
-        style={{
-            background : param.color.backGround,
-            boxShadow: param.color.boxShadow
-        }}
-        >
+        <div className='compactCard'
+            style={{
+                background: param.color.backGround,
+                boxShadow: param.color.boxShadow
+            }}
+            >
             <div className='radialBar'>
                 <CircularProgressbar
                 value={param.barValue}
-                text={`{param.barValue}%`}
+                text={`${param.barValue}%`}
                 />
+                <span>{param.title}</span>
             </div>
             <div className='detail'>
                 <span>{param.value}</span>
