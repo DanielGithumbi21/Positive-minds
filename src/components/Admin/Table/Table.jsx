@@ -1,12 +1,12 @@
-import React from 'react'
-import "./Table.css"
-const Table = () => {
-  return (
-    <div className='Table'>
-      <h3>Recent Sessions</h3>
+// import React from 'react'
+// import "./Table.css"
+// const Table = () => {
+//   return (
+//     <div className='Table'>
+//       <h3>Recent Sessions</h3>
 
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default Table
+// export default Table
