@@ -9,7 +9,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { clientItems, counsellorItems } from './sideBarItems';
+import { AdminItems, clientItems, counsellorItems } from './sideBarItems';
 import { DataContext } from '../../Context/DataContext';
 import { Divider } from '@mui/material';
 import { NavLink } from "react-router-dom";
@@ -90,7 +90,34 @@ export default function Sidebar() {
                             </React.Fragment>
                             :
                             user.user.is_admin ?
-                                ""
+                                <React.Fragment>
+                                    {AdminItems.map((item) => (
+                                        <>
+
+
+                                            <Divider sx={{ marginTop: "20px", backgroundColor: "#FFFFFF" }} />
+
+                                            {
+                                                item.items.map((item) => (
+                                                    <NavLink to={item.link} className="links" style={({ isActive }) =>
+                                                        isActive ? activeStyle : undefined
+                                                    } >
+                                                        <ListItem key={item.name} >
+                                                            <ListItemButton>
+                                                                <ListItemIcon sx={{
+                                                                    color: "#FFFFFF"
+                                                                }}>
+                                                                    <item.Icon />
+                                                                </ListItemIcon>
+                                                                <ListItemText primary={item.name} />
+                                                            </ListItemButton>
+                                                        </ListItem>
+                                                    </NavLink>
+                                                ))
+                                            }
+                                        </>
+                                    ))}
+                                </React.Fragment>
                                 :
                                 <React.Fragment>
                                     {clientItems.map((item) => (
