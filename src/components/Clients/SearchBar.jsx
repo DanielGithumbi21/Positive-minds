@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Paper, InputBase, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBar = () => {
+const SearchBar = ({onSubmit}) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = (event) => {
@@ -11,7 +11,7 @@ const SearchBar = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Perform the search using the searchTerm value
+        onSubmit(searchTerm);
     }
 
     return (

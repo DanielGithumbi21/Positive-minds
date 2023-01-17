@@ -15,25 +15,32 @@ const Dashboard = () => {
     const navigate = useNavigate()
     const [sessions, setSessions] = useState([])
     const [isLoading, setIsLoading] = useState(false)
-    
-
+    const [filteredSessions, setFilteredSessions] = useState([]);
 
     useEffect(() => {
         getSessions(setIsLoading).then((data) => {
-            setSessions(data)
+            setSessions(data);
+            const availableSessions = data.filter((session) => {
+                return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0
+            });
+            setFilteredSessions(availableSessions);
+            
         })
     }, [])
 
-    const availableSessions = sessions.filter((session) => {
-        return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0
-    })
 
-    
+    const handleSearchSubmit = (searchTerm) => {
+        if(sessions){
+            const filteredSessions = sessions.filter((session) => {
+                return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0 && session.name.includes(searchTerm);
+            });
+            setFilteredSessions(filteredSessions)
+        }
+    }
 
-    console.log(availableSessions)
     return (
         <React.Fragment>
-           
+
             <div className="container-fluid client-dashboard">
 
                 <div className="row padding">
@@ -79,7 +86,7 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Available Sessions</h6>
-                                        <h6 className='mb-2'>{availableSessions.length}</h6>
+                                        <h6 className='mb-2'>{filteredSessions.length }</h6>
                                         <button className="btn btn-success btn-sm" onClick={(() => navigate("/view-sessions"))}>View</button>
 
                                     </div>
@@ -144,7 +151,7 @@ const Dashboard = () => {
                 }} className="mt-3 mb-3" >
                     Available sessions
                 </h5>
-                
+
                 <table className="table">
                     <thead>
                         <tr>
@@ -157,7 +164,7 @@ const Dashboard = () => {
                     </thead>
 
                     {
-                        availableSessions.slice(0, 3).map((session) => (
+                        filteredSessions.slice(0, 3).map((session) => (
                             <tbody>
                                 <tr>
 
