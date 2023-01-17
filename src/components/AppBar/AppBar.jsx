@@ -11,6 +11,16 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { DataContext } from '../../Context/DataContext';
 import { useNavigate } from 'react-router-dom';
+import { Grid, makeStyles } from '@mui/material'
+
+// const useStyles = makeStyles({
+//     searchBar: {
+//         backgroundColor: 'white',
+//         padding: '10px',
+//         fontSize: '20px',
+//         borderRadius: '5px',
+//     },
+// });
 
 const drawerWidth = 300;
 const AppBar = styled(MuiAppBar, {
@@ -66,36 +76,14 @@ const TopAppBar = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Button
-                        id="basic-button"
-                        aria-controls={checkOpen ? 'basic-menu' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={checkOpen ? 'true' : undefined}
-                        onClick={handleClick}
-
-                    >
-                        <PowerSettingsNewIcon sx={{
-                            color: "#808080"
-                        }} />
-                    </Button>
-                    <Menu
-                        id="basic-menu"
-                        anchorEl={anchorEl}
-                        open={checkOpen}
-                        onClose={handleClose}
-                        MenuListProps={{
-                            'aria-labelledby': 'basic-button',
-                        }}
-                    >
-                        <MenuItem onClick={handleClose}>
-                            <button className="btn btn-outline btn-md" onClick={logout}>Logout</button>
-                        </MenuItem>
-                    </Menu>
-
+                    {/* <Grid container justify="center" alignItems="center">
+                        <div className={classes.searchBar}>
+                            <SearchBar />
+                        </div>
+                    </Grid> */}
                     <Typography variant="h6" noWrap component="div" >
                         Welcome, {user.user.name}
                     </Typography>
-
                 </Toolbar>
             </AppBar>
         </React.Fragment>

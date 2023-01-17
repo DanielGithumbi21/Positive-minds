@@ -5,6 +5,8 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import { getSessions } from '../../Data/users/counsellors';
 import { useNavigate } from 'react-router-dom';
+// import "./Dashboard.css"
+import SearchBar from './SearchBar';
 
 
 
@@ -13,6 +15,8 @@ const Dashboard = () => {
     const navigate = useNavigate()
     const [sessions, setSessions] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    
+
 
     useEffect(() => {
         getSessions(setIsLoading).then((data) => {
@@ -24,10 +28,14 @@ const Dashboard = () => {
         return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0
     })
 
+    
+
     console.log(availableSessions)
     return (
         <React.Fragment>
+           
             <div className="container-fluid client-dashboard">
+
                 <div className="row padding">
                     <div className="col-lg-6">
 
@@ -53,6 +61,11 @@ const Dashboard = () => {
                 }} className="mt-3 mb-3" >
                     Overview
                 </h5>
+                <div className="row padding">
+                    <div className="col-lg-12 text-center">
+                        <SearchBar onSubmit={handleSearchSubmit} />
+                    </div>
+                </div>
                 <div className="row padding">
                     <div className="col-lg-4">
                         <Card sx={{
@@ -131,6 +144,7 @@ const Dashboard = () => {
                 }} className="mt-3 mb-3" >
                     Available sessions
                 </h5>
+                
                 <table className="table">
                     <thead>
                         <tr>
