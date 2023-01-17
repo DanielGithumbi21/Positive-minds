@@ -1,9 +1,9 @@
 // import { Card } from '@mui/material'
 import React from 'react'
-import { CardsData } from '../../Data/Cards/AdminData'
+import { CardsData } from './AdminData'
 import Card from '../Card/Card'
-import './Cards.css'
-function Cards() {
+import './Cardsadmin.css'
+function CardsAdmin() {
   return (
     <div className='Cards'>
         {CardsData.map((card,id)=>{
@@ -23,4 +23,4 @@ function Cards() {
   )
 }
 
-export default Cards
+export default CardsAdmin
