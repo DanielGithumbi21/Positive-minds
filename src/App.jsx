@@ -14,7 +14,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<Admin/>} />
       </Routes>
       <RoutesPage />
     </React.Fragment>
