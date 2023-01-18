@@ -5,7 +5,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import { getSessions } from '../../Data/users/counsellors';
 import { useNavigate } from 'react-router-dom';
-// import "./Dashboard.css"
+import SessionCard from './SessionCard';
 import SearchBar from './SearchBar';
 
 
@@ -16,6 +16,7 @@ const Dashboard = () => {
     const [sessions, setSessions] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [filteredSessions, setFilteredSessions] = useState([]);
+    const [searchClicked, setSearchClicked] = useState(false);
 
     useEffect(() => {
         getSessions(setIsLoading).then((data) => {
@@ -24,17 +25,18 @@ const Dashboard = () => {
                 return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0
             });
             setFilteredSessions(availableSessions);
-            
+
         })
     }, [])
 
 
     const handleSearchSubmit = (searchTerm) => {
-        if(sessions){
+        if (sessions) {
             const filteredSessions = sessions.filter((session) => {
-                return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0 && session.name.includes(searchTerm);
+                return new Date(session.time).getTime() - new Date(Date.now()).getTime() >= 0 && session.title.includes(searchTerm);
             });
             setFilteredSessions(filteredSessions)
+            setSearchClicked(true);
         }
     }
 
@@ -73,6 +75,13 @@ const Dashboard = () => {
                         <SearchBar onSubmit={handleSearchSubmit} />
                     </div>
                 </div>
+                 {searchClicked && (
+                    <div className="row padding">
+                        {filteredSessions.map((session) => (
+                            <SessionCard key={session.id} session={session} />
+                        ))}
+                    </div>
+                 )}
                 <div className="row padding">
                     <div className="col-lg-4">
                         <Card sx={{
@@ -86,7 +95,7 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Available Sessions</h6>
-                                        <h6 className='mb-2'>{filteredSessions.length }</h6>
+                                        <h6 className='mb-2'>{filteredSessions.length}</h6>
                                         <button className="btn btn-success btn-sm" onClick={(() => navigate("/view-sessions"))}>View</button>
 
                                     </div>
