@@ -142,6 +142,13 @@ p{
 
 }
 
+@media (max-width:920px){
+ .content{
+display:block;
+ }
+    
+}
+
 
 `
 

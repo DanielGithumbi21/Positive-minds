@@ -13,8 +13,8 @@ export default function Footer() {
         <SocialIcon network="linkedin" bgColor="#E59438" />
       </div>
       <div className='main'>
-        <div className='sec'>
-          <h2>POSITIVE MINDS COUNCELLING</h2>
+        <div className='sec-a'>
+          <h2>POSITIVE MINDS COUNSELLING</h2>
           <p id='number'>+254 700 000 000</p>
         </div>
         <div className='sec'>
@@ -45,7 +45,7 @@ export default function Footer() {
       </div>
       <div className='bottom'>
 
-        <h3> Positive Minds Coucelling|All rights reserved </h3>
+        <h3> Positive Minds Counselling | All rights reserved </h3>
       </div>
     </StyledLanding>
   )
@@ -53,17 +53,17 @@ export default function Footer() {
 
 const StyledLanding = styled.div`
 background: #143E35;
-
+margin-bottom:"0px"
 
 margin: auto;
 .socials{
-  margin: 60px 0;
+  /* margin: 3.75rem 0; */
   text-align: center;
   //width: 80%;
   //margin: auto;
 
   & a{
-    margin: 100px 20px 20px;
+    margin: 5rem 1.25rem ;
   }
 
 }
@@ -77,21 +77,26 @@ margin: auto;
 }
 .sec{
   //margin: 20px;
-  font-size: 20px;
+  font-size: 1.25;
+  color: white;
+}
+
+.sec-a{
+  font-size: 1.25;
   color: white;
 }
 
 p{
-  font-size: xx-large;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 .bottom{
   text-align: center;
-  padding-bottom: 5px;
+  padding-bottom: 0.313rem;
   color: white;
   font-size: small;
-  padding-top: 40px;
+  padding-top: 2.5rem;
   
 }
 
@@ -102,6 +107,29 @@ hr {
         margin-right: auto;
         background-color: #b7d0e2;
       
+      }
+
+      @media (max-width:920px){
+        .sec{
+          display:none;
+        }
+
+        .sec-a{
+          width: 100%;
+          padding: 0;
+          font-size: 0.8rem;
+          //padding-left: 1.2rem;
+          margin-top: -35px;
+          margin-bottom: 3.2rem;
+          //background: red;
+          text-align: center;
+
+
+        }
+
+        #number{
+          font-size: 1rem;
+        }
       }
 
 `

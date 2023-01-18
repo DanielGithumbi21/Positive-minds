@@ -2,34 +2,36 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+
 export default function Navbar() {
     return (
         <StyledDiv>
             <div className='navbar'>
 
                 <div>
-                    <li className='logo'>
-                        <Link to="/logo">Positive.Minds</Link>
-                    </li>
+                    <div className='logo'>
+                        <Link to="/">Positive Minds</Link>
+                    </div>
                 </div>
 
                 <div className='links'>
                     <li>
-                        <Link to="/home">Home</Link>
+                        <Link id='none' to="/client">Home</Link>
                     </li>
 
                     <li>
-                        <Link to="/councelors">Councelors</Link>
+                        <Link id='none' to="/client">Counsellors</Link>
                     </li>
                     <li>
-                        <button>
-                            <Link to="/login">Login</Link>
-                        </button>
+                        <Link to="/login">
+                            <button className="btn btn-md btn-outline-success">Login</button>
+                        </Link>
+
                     </li>
                     <li>
-                        <button className='filler'>
-                            <Link to="/find your group">Find your group</Link>
-                        </button>
+                        <Link to="/login">
+                            <button className="btn btn-success btn-md">Find Your Group</button>
+                        </Link>
                     </li>
                 </div>
             </div>
@@ -38,9 +40,9 @@ export default function Navbar() {
 }
 
 const StyledDiv = styled.div`
-        height:100px;
+        height:6.25rem;
         display:flex;
-    
+   
 
     .navbar{
         list-style:none;
@@ -58,7 +60,7 @@ const StyledDiv = styled.div`
         align-items:center;
         width:55%;
         padding-right:3rem;
-        font-size:24px;
+        font-size:1.5rem;
         font-weight: 500;
          }
     .links a{
@@ -71,7 +73,7 @@ const StyledDiv = styled.div`
         padding-left:3rem;
         font-style: normal;
         font-weight: 600;
-        font-size: 40px;
+        font-size: 2.0rem;
         line-height: 54px;
 
     }
@@ -79,15 +81,13 @@ const StyledDiv = styled.div`
     .logo a{
         text-decoration:none;
         color:rgba(20, 62, 53, 1);
-    
+   
     }
     button{
-        width: 220px;
-        height: 60px;
-        font-size:24px;
+        
+        font-size:20px;
         font-weight: 500;
         border-radius: 15px;
-        background:#fff;
         border: 2px solid rgba(20, 62, 53, 1);
 
 
@@ -100,4 +100,35 @@ const StyledDiv = styled.div`
         color: #fff;
     }
     }
+   
+   @media (max-width: 920px) {
+    height:5.25rem;
+
+    .navbar{
+        //display: block;
+    }
+    #none {
+        display: none;
+    }
+    .logo{
+        font-size: 1.4rem;
+        margin-right: 10px;
+        margin-right: 1px;
+        padding-left: 1rem;
+    }
+
+    button{
+   ;
+        font-size:12px;
+        font-weight: 400;
+        border-radius: 15px;
+        border: 2px solid rgba(20, 62, 53, 1);
+
+    }
+    .links{padding-right: 0.5rem;}
+
+    #login{
+        margin-right: 20px;
+    }
+   }
 `

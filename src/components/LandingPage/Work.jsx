@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 export default function Work() {
   return (
     <StyledDiv>
-      <div>
+      <div className='content'>
         <p>Are you a Proffesional Therapist? Work with us!</p>
-        <button>Get Started Here</button>
+        <Link to="login">
+          <button>Get Started Here</button>
+        </Link>
+
       </div>
     </StyledDiv>
   )
@@ -24,7 +28,7 @@ p{
   //padding-bottom: 5px;
 
 font-weight: 400;
-font-size: 70px;
+font-size: 40px;
 line-height: 100px;
 text-align: center;
 color: #43806C;
@@ -44,6 +48,14 @@ height: 90px;
 
 background: #143E35;
 border: 2px solid #143E35;
+}
+
+@media (max-width:920px) {
+  button{
+    width: 20rem;
+  }
+
+  
 }
 
 `

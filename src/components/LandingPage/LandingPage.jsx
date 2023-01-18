@@ -7,16 +7,19 @@ import Tips from './Tips';
 import Results from './Results';
 import Work from './Work';
 import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
     return (
         <main>
 
             <Navbar />
-            <HeroDiv style={{ background: `url(${image1}) center center/cover` }}>
+            <HeroDiv style={{}}>
                 <h1 className='landing-text'>Expert-Led Online Group Therapy for Everyone</h1>
                 <p>Join an online therapy group, and be supported every step of the way.</p>
-                <button>Get Started</button>
+                <Link to="login">
+                    <button>Get Started</button>
+                </Link>
             </HeroDiv>
 
             <Icons />
@@ -31,6 +34,8 @@ export default function LandingPage() {
 const HeroDiv = styled.div`
     width: 100%;
     height: 825px;
+    background: url(${image1}) center center / cover;
+
    
 
     .landing-text{
@@ -38,12 +43,12 @@ const HeroDiv = styled.div`
     width: 661px;
     height: 116px;
     left: 68px;
-    top: 350px;
+    top: 250px;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 30px;
     line-height: 58px;
 
     color: #143E35;
@@ -55,12 +60,12 @@ p{
     width: 486px;
     height: 117px;
     left: 78px;
-    top: 490px;
+    top: 390px;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 39px;
     color: #143E35;
 
@@ -72,7 +77,7 @@ button{
     width: 212px;
     height: 60px;
     left: 67px;
-    top: 628px;
+    top: 528px;
     background: #143E35;
     border-radius: 15px;
     border: 2px solid rgba(20, 62, 53, 1);
@@ -81,6 +86,52 @@ button{
     font-size: 26px;
     line-height: 31px;
     color: #FFFFFF;
+}
+
+@media (max-width:920px){
+    background: rgb(20,62,53,1);
+    color: #FFFFFF;
+    //align-items: center;
+    .landing-text{
+
+    font-family: 'Inter';
+    color: #FFFFFF;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5rem;
+    top: 200px;
+    line-height: 58px;
+    //background:red;
+    width: 25rem;
+    height: 20vh;
+
+    }
+
+    p{
+        font-family: 'Inter';
+    
+    height: 20vh;
+    color: #fff;
+    //background: orange;
+    /* margin-top: 90px; */
+    top: 400px;
+    width: 25rem;
+    line-height: 58px;
+    margin-left: -10px;
+
+    }
+
+    button{
+        /* margin-top: 130px; */
+        bottom:0.5px;
+        left: 68px;
+        background: rgba(229,148,56,1);
+        border-color: #FFFFFF;
+    }
+
+    
+    
 }
     
 `

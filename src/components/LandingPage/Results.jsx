@@ -7,6 +7,7 @@ export default function Results() {
       <h1>
         See life changing results
       </h1>
+
       <div className='cards'>
         <div className='card'>
           <h2>Michael</h2>
@@ -35,7 +36,9 @@ export default function Results() {
         </div>
 
       </div>
-    </StyledDiv>
+
+
+    </StyledDiv >
   )
 }
 
@@ -78,6 +81,17 @@ p{
   flex: 1;
   border-radius: 15px;
   padding: 20px;
+
 }
+
+@media (max-width:920px){
+ .cards{
+display:block;
+}
+ .card{
+  margin-bottom: 35px;
+ }   
+}
+
 
 `

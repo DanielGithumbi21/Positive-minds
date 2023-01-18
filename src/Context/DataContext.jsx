@@ -5,11 +5,13 @@ const DataContext = React.createContext({});
 const DataProvider = ({ children }) => {
 
     const [open, setOpen] = useState(false);
+    const [user, setUser] = useLocalStorage("user", null)
+    const [counsellor, setCounsellor] = useLocalStorage("counsellor", null)
+
 
     const smallScreen = useMediaQuery('(max-width:800px)');
 
 
-    const [user, setUser] = useLocalStorage("user", null)
     const [loggedUser, setLoggedUser] = useLocalStorage("loggedUser", false)
 
     const handleDrawerOpen = () => {
@@ -20,7 +22,7 @@ const DataProvider = ({ children }) => {
     }
 
     return (
-        <DataContext.Provider value={{ open, handleDrawerClose, handleDrawerOpen, loggedUser, user, setUser, setLoggedUser, smallScreen }}>
+        <DataContext.Provider value={{ open, handleDrawerClose, handleDrawerOpen, loggedUser, user, setUser, setLoggedUser, smallScreen, counsellor, setCounsellor }}>
             {children}
         </DataContext.Provider>
     );
