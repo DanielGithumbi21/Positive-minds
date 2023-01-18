@@ -3,6 +3,7 @@ import "./Profile.css"
 import { Card } from '@mui/material'
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
+
 import { getSessions } from '../../Data/users/counsellors';
 import { useNavigate } from 'react-router-dom';
 
@@ -66,6 +67,7 @@ const Dashboard = () => {
                                 <div className="row padding">
                                     <div className="col-lg-10">
                                         <h6 className='mt-3 mb-3'>Available Sessions</h6>
+
                                         <h6 className='mb-2'>{availableSessions.length}</h6>
                                         <button className="btn btn-success btn-sm" onClick={(() => navigate("/view-sessions"))}>View</button>
 
