@@ -67,28 +67,33 @@ const RoutesPage = () => {
             <Suspense fallback={
                 <div className="text-center"><CircularProgress color="success" /></div>
             }>
-                <Main open={open} sx={{
-                    padding: "50px"
-                }}>
-                    <DrawerHeader />
-                    <Routes>
-                        <Route element={<PrivateRoute />}>
-                            <Route path='/client' element={<Dashboard />} />
-                            <Route path='/client/profile' element={<Profile />} />
-                            <Route path='/client/be-a-therapist' element={<BeTherapist />} />
-                            <Route path='/client/appointments' element={<Appointments />} />
-                            <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
-                            <Route path="/counsellor" element={<CounsellorDashboard />} />
-                            <Route path="/counsellor/create-session" element={<CreateSession />} />
-                            <Route path="/view-sessions" element={<ViewSessions />} />
-                            <Route path="/session/:id/details" element={<SessionsDetails />} />
-                            <Route path="/admin" element={<AdminDashboard />} />
-                            <Route path='/admin/be-counsellor' element={<CounsellorProfileRequests />} />
-                            <Route path='/admin/:id/counsellor-details' element={<CounsellorDetails />} />
-                        </Route>
-                    </Routes>
+                {
+                    loggedUser && (
+                        <Main open={open} sx={{
+                            padding: "50px"
+                        }}>
+                            <DrawerHeader />
+                            <Routes>
+                                <Route element={<PrivateRoute />}>
+                                    <Route path='/client' element={<Dashboard />} />
+                                    <Route path='/client/profile' element={<Profile />} />
+                                    <Route path='/client/be-a-therapist' element={<BeTherapist />} />
+                                    <Route path='/client/appointments' element={<Appointments />} />
+                                    <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
+                                    <Route path="/counsellor" element={<CounsellorDashboard />} />
+                                    <Route path="/counsellor/create-session" element={<CreateSession />} />
+                                    <Route path="/view-sessions" element={<ViewSessions />} />
+                                    <Route path="/session/:id/details" element={<SessionsDetails />} />
+                                    <Route path="/admin" element={<AdminDashboard />} />
+                                    <Route path='/admin/be-counsellor' element={<CounsellorProfileRequests />} />
+                                    <Route path='/admin/:id/counsellor-details' element={<CounsellorDetails />} />
+                                </Route>
+                            </Routes>
 
-                </Main>
+                        </Main>
+                    )
+                }
+
             </Suspense>
 
 
