@@ -37,7 +37,7 @@ const BeTherapist = () => {
     <React.Fragment>
       <div className="container-fluid p-4">
         {
-          open ? <AlertDialog open={open} handleClose={handleClose} handleClickHome={handleGoHome} /> : ""
+          open ? <AlertDialog open={open} title="Thank you, your request was received." content="You are being vetted, once approved you will be notified." button="Go Home" handleClose={handleClose} handleClickHome={handleGoHome} /> : ""
         }
         <h5 style={{ color: "#143E35" }}>Become A Therapist</h5>
         <hr className="light mb-5 mt-3" />
