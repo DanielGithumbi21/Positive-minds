@@ -29,6 +29,38 @@ const getCounselorProfile = async (setIsLoading) => {
         console.error(error)
     }
 }
+const getSingleCounselorProfile = async (setIsLoading, id) => {
+    try {
+        setIsLoading(true)
+        const response = await fetch(`${api}/counselor_profiles/${id}`, {
+            headers: authHeader(),
+        });
+        const data = await response.json();
+        setIsLoading(false);
+        return data;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const verifyCounsellor = async (id, navigate) => {
+    axios.post(`${api}/verify/${id}`, {}, {
+        headers: authHeader()
+    })
+        .then(() => {
+            navigate(0)
+        })
+}
+
+const deleteCounsellorProfile = async (navigate, id, setOpen) => {
+    axios.delete(`${api}/counselor_profiles/${id}`, {
+        headers: authHeader()
+    })
+        .then(() => {
+            setOpen(false)
+            navigate("admin/be-counsellor")
+        })
+}
 
 const beTherapist = (post, setOpen) => {
     axios.post(`${api}/counselor_profiles`, post, {
@@ -57,5 +89,5 @@ const bookAppointment = async (post, setIsLoading) => {
 }
 
 export {
-    getProfile, beTherapist, getCounselorProfile, bookAppointment
+    getProfile, beTherapist, getCounselorProfile, bookAppointment, getSingleCounselorProfile, deleteCounsellorProfile, verifyCounsellor
 }

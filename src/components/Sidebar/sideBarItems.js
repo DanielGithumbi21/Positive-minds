@@ -98,7 +98,7 @@ const AdminItems = [
       {
         name: "Dashboard",
         Icon: DashboardIcon,
-        link: "/counsellor",
+        link: "/admin",
       },
     ],
   },
@@ -108,18 +108,13 @@ const AdminItems = [
       {
         name: "Counsellors",
         Icon: EmailIcon,
-        link: "/view-sessions",
+        link: "/admin/be-counsellor",
       },
 
       {
         name: "All Sessions",
         Icon: BookOnlineIcon,
-        link: "/counsellor/create-session",
-      },
-      {
-        name: "Appointments",
-        Icon: BookOnlineIcon,
-        link: "/counsellor/create-session",
+        link: "/view-sessions",
       },
     ],
   },
