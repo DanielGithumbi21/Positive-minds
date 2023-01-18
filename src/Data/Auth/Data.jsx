@@ -1,6 +1,6 @@
 import axios from "axios"
-// const api = "https://positive-minds-production.up.railway.app"
-const api = "http://127.0.0.1:3000"
+const api = "https://positive-minds-production.up.railway.app"
+// const api = "http://127.0.0.1:3000"
 
 
 
@@ -11,7 +11,7 @@ const registerUser = (formData, setLoggedUser, setUser, navigate, setIsLoading, 
             setIsLoading(false)
             setLoggedUser(true)
             setUser(data.data)
-            data.data.user.is_counselor ? navigate("/counsellor") : navigate("/client")
+            navigate("/client")
 
         })
 }
@@ -23,7 +23,7 @@ const loginUser = (formData, setLoggedUser, setUser, navigate, setIsLoading, set
             setIsLoading(false)
             setLoggedUser(true)
             setUser(data.data)
-            data.data.user.is_counselor ? navigate("/counsellor") : navigate("/client")
+            data.data.user.is_counselor ? navigate("/counsellor") : data.data.user.is_admin ? navigate("/admin") : navigate("/client")
         })
         .catch((error) => {
             setIsLoading(false)

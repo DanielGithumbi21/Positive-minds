@@ -7,10 +7,11 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DataContext } from '../../Context/DataContext';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { bookAppointment } from '../../Data/users/users';
 
 const BookAppointment = () => {
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const initialState = { topic: '', title: '', description: '', location: '' }
     const [formData, setFormData] = useState(initialState)
@@ -36,7 +37,7 @@ const BookAppointment = () => {
             location: formData.location
         }
 
-        bookAppointment(post, setIsLoading)
+        bookAppointment(post, setIsLoading, navigate)
     }
     return (
         <div className='container p-4'>

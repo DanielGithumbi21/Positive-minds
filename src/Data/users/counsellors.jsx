@@ -9,7 +9,22 @@ const createSession = async (post, setIsLoading, navigate) => {
             headers: authHeader()
         })
             .then(() => {
-                navigate("/counsellor/view-sessions")
+                navigate("/view-sessions")
+            })
+        setIsLoading(false)
+    } catch (error) {
+        console.error(error)
+    }
+};
+
+const bookFromSession = async (setIsLoading, id, navigate) => {
+    try {
+        setIsLoading(true)
+        axios.post(`${api}/new_from_session`, {}, {
+            headers: authHeader()
+        })
+            .then((data) => {
+                console.log(data)
             })
         setIsLoading(false)
     } catch (error) {
@@ -47,5 +62,6 @@ const getSessionDetails = async (setIsLoading, id) => {
 export {
     createSession,
     getSessions,
-    getSessionDetails
+    getSessionDetails,
+    bookFromSession
 }
