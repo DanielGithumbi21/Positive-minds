@@ -1,25 +1,13 @@
-import React, { useContext } from 'react'
+import React, { Suspense, lazy, useContext } from 'react'
 import { Box } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { styled } from '@mui/material/styles';
-import Sidebar from '../components/Sidebar/Sidebar';
-import TopAppBar from '../components/AppBar/AppBar';
 import { DataContext } from '../Context/DataContext';
 import { Route, Routes } from 'react-router';
-import Dashboard from '../components/Clients/Dashboard';
-import Profile from '../components/Clients/Profile';
-import BeTherapist from '../components/Clients/BeTherapist';
 import PrivateRoute from './PrivateRoute';
-import CounsellorDashboard from '../components/counsellors/Dashboard';
-import CreateSession from '../components/counsellors/CreateSession';
-import ViewSessions from '../components/counsellors/ViewSessions';
-import SessionsDetails from '../components/counsellors/SessionsDetails';
-import Appointments from '../components/Clients/Appointments';
-import BookAppointment from '../components/Clients/BookAppointment';
-import CounsellorProfileRequests from '../components/Admin/CounsellorProfileRequests';
-import CounsellorDetails from '../components/Admin/CounsellorDetails';
-import AdminDashboard from '../components/Admin/AdminDashboard';
-
+import CircularProgress from '@mui/material/CircularProgress';
+import Sidebar from '../components/Sidebar/Sidebar';
+import TopAppBar from '../components/AppBar/AppBar'
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -51,6 +39,18 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 const RoutesPage = () => {
+    const Dashboard = lazy(() => import('../components/Clients/Dashboard'))
+    const Profile = lazy(() => import('../components/Clients/Profile'))
+    const BeTherapist = lazy(() => import('../components/Clients/BeTherapist'))
+    const CounsellorDashboard = lazy(() => import('../components/counsellors/Dashboard'))
+    const CreateSession = lazy(() => import('../components/counsellors/CreateSession'))
+    const ViewSessions = lazy(() => import('../components/counsellors/ViewSessions'))
+    const SessionsDetails = lazy(() => import('../components/counsellors/SessionsDetails'))
+    const Appointments = lazy(() => import('../components/Clients/Appointments'))
+    const BookAppointment = lazy(() => import('../components/Clients/BookAppointment'))
+    const CounsellorDetails = lazy(() => import('../components/Admin/CounsellorDetails'))
+    const AdminDashboard = lazy(() => import('../components/Admin/AdminDashboard'))
+    const CounsellorProfileRequests = lazy(() => import('../components/Admin/CounsellorProfileRequests'))
     const { open, loggedUser } = useContext(DataContext)
 
     return (
@@ -64,30 +64,39 @@ const RoutesPage = () => {
                     </>
                 )
             }
+            <Suspense fallback={
+                <div className="text-center"><CircularProgress color="success" /></div>
+            }>
+                {
+                    loggedUser && (
+                        <Main open={open} sx={{
+                            padding: "50px"
+                        }}>
+                            <DrawerHeader />
+                            <Routes>
+                                <Route element={<PrivateRoute />}>
+                                    <Route path='/client' element={<Dashboard />} />
+                                    <Route path='/client/profile' element={<Profile />} />
+                                    <Route path='/client/be-a-therapist' element={<BeTherapist />} />
+                                    <Route path='/client/appointments' element={<Appointments />} />
+                                    <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
+                                    <Route path="/counsellor" element={<CounsellorDashboard />} />
+                                    <Route path="/counsellor/create-session" element={<CreateSession />} />
+                                    <Route path="/view-sessions" element={<ViewSessions />} />
+                                    <Route path="/session/:id/details" element={<SessionsDetails />} />
+                                    <Route path="/admin" element={<AdminDashboard />} />
+                                    <Route path='/admin/be-counsellor' element={<CounsellorProfileRequests />} />
+                                    <Route path='/admin/:id/counsellor-details' element={<CounsellorDetails />} />
+                                </Route>
+                            </Routes>
 
-            <Main open={open} sx={{
-                padding: "50px"
-            }}>
-                <DrawerHeader />
-                <Routes>
-                    <Route element={<PrivateRoute />}>
-                        <Route path='/client' element={<Dashboard />} />
-                        <Route path='/client/profile' element={<Profile />} />
-                        <Route path='/client/be-a-therapist' element={<BeTherapist />} />
-                        <Route path='/client/appointments' element={<Appointments />} />
-                        <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
-                        <Route path="/counsellor" element={<CounsellorDashboard />} />
-                        {/* <Route path="/admin" element={AdminDashboard />} /> */}
-                        <Route path="/counsellor/create-session" element={<CreateSession />} />
-                        <Route path="/view-sessions" element={<ViewSessions />} />
-                        <Route path="/session/:id/details" element={<SessionsDetails />} />
-                        <Route path="/admin" element={<AdminDashboard />} />
-                        <Route path='/admin/be-counsellor' element={<CounsellorProfileRequests />} />
-                        <Route path='/admin/:id/counsellor-details' element={<CounsellorDetails />} />
-                    </Route>
-                </Routes>
+                        </Main>
+                    )
+                }
 
-            </Main>
+            </Suspense>
+
+
         </Box>
     )
 }
