@@ -1,12 +1,11 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function AlertDialog({ handleClose, open, handleClickHome }) {
+export default function AlertDialog({ handleClose, open, handleClickHome, title, content, button }) {
     return (
         <div>
             <Dialog
@@ -16,19 +15,19 @@ export default function AlertDialog({ handleClose, open, handleClickHome }) {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    Thank you, your request was received.
+                    {title}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText className='text-center' id="alert-dialog-description">
-                        You are being vetted, once approved you will be notified.
+                        {content}
                     </DialogContentText>
                 </DialogContent>
                 <div className="text-center" style={{ marginRight: "150px" }}>
 
                     <DialogActions >
-                        <button onClick={handleClose} className='btn btn-danger btn-md'>Cancel</button>
-                        <button onClick={handleClickHome} className="btn btn-md btn-success" autoFocus>
-                            Go Home
+                        <button onClick={handleClose} className='btn btn-success btn-md'>Cancel</button>
+                        <button onClick={handleClickHome} className="btn btn-md btn-danger" autoFocus>
+                            {button}
                         </button>
 
                     </DialogActions>

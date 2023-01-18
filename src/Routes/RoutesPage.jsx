@@ -16,6 +16,10 @@ import ViewSessions from '../components/counsellors/ViewSessions';
 import SessionsDetails from '../components/counsellors/SessionsDetails';
 import Appointments from '../components/Clients/Appointments';
 import BookAppointment from '../components/Clients/BookAppointment';
+import CounsellorProfileRequests from '../components/Admin/CounsellorProfileRequests';
+import CounsellorDetails from '../components/Admin/CounsellorDetails';
+import AdminDashboard from '../components/Admin/AdminDashboard';
+
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -73,9 +77,13 @@ const RoutesPage = () => {
                         <Route path='/client/appointments' element={<Appointments />} />
                         <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
                         <Route path="/counsellor" element={<CounsellorDashboard />} />
+                        {/* <Route path="/admin" element={AdminDashboard />} /> */}
                         <Route path="/counsellor/create-session" element={<CreateSession />} />
                         <Route path="/view-sessions" element={<ViewSessions />} />
                         <Route path="/session/:id/details" element={<SessionsDetails />} />
+                        <Route path="/admin" element={<AdminDashboard />} />
+                        <Route path='/admin/be-counsellor' element={<CounsellorProfileRequests />} />
+                        <Route path='/admin/:id/counsellor-details' element={<CounsellorDetails />} />
                     </Route>
                 </Routes>
 

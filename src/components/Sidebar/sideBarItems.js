@@ -4,7 +4,6 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import PersonIcon from "@mui/icons-material/Person";
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
-import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 const clientItems = [
   {
     name: "",
@@ -50,11 +49,6 @@ const clientItems = [
         Icon: HourglassFullIcon,
         link: "/client/profile",
       },
-      {
-        name: "Logout",
-        Icon: PowerSettingsNewIcon,
-        link: "/",
-      },
     ],
   },
 ];
@@ -94,12 +88,46 @@ const counsellorItems = [
         Icon: HourglassFullIcon,
         link: "/client/profile",
       },
+    ],
+  },
+];
+const AdminItems = [
+  {
+    name: "",
+    items: [
       {
-        name: "Logout",
-        Icon: PowerSettingsNewIcon,
-        link: "/",
+        name: "Dashboard",
+        Icon: DashboardIcon,
+        link: "/admin",
+      },
+    ],
+  },
+  {
+    name: "sessions",
+    items: [
+      {
+        name: "Counsellors",
+        Icon: EmailIcon,
+        link: "/admin/be-counsellor",
+      },
+
+      {
+        name: "All Sessions",
+        Icon: BookOnlineIcon,
+        link: "/view-sessions",
+      },
+    ],
+  },
+
+  {
+    name: "Account",
+    items: [
+      {
+        name: "My Profile",
+        Icon: HourglassFullIcon,
+        link: "/client/profile",
       },
     ],
   },
 ];
-export { clientItems, counsellorItems };
+export { clientItems, counsellorItems, AdminItems };
