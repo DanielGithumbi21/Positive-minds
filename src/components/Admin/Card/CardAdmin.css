@@ -1,7 +1,8 @@
-.campactCard{
-    display: flex  !important;
-    flex: 1;
-    height: 2rem!important;
+/* .compactCard{
+    display: flex;
+    flex: 2;
+    height: 10rem!important;
+    width: 13rem;
     border-radius: 0.7rem;
     color: white ;
     position: relative ;
@@ -17,7 +18,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .CircularProgressbar{
@@ -27,7 +28,7 @@
 
 .CircularProgressbar-path{
     stroke: white !important;
-    stroke-width: 12px;
+    stroke-width: 12px !important;
     filter: drop-shadow(2px 4px 6px white);
 }
 
@@ -42,22 +43,23 @@
 .radialBar>span{
     font: size 17px;
     font-weight: bold;
-    /* color: white; */
+    color: white;
 }
 
 .detail{
-    flex: 1;
+    flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-}
+} */
 
 .detail>span:nth-child(2){
     font-size: 12px;
     font-weight: bold;
+    
 }
 
 .detail>span:nth-child(3){
-    font-size: 22px;
+    font-size: 12px;
 }
