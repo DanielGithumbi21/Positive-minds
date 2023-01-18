@@ -8,9 +8,11 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { createSession } from '../../Data/users/counsellors';
 import { DataContext } from '../../Context/DataContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateSession = () => {
+    const navigate = useNavigate()
     const [value, setValue] = useState(dayjs(Date.now()));
     const initialState = { title: "", topic: "", location: "", description: "" }
     const [formData, setFormData] = useState(initialState)
@@ -34,7 +36,7 @@ const CreateSession = () => {
             counselor_profile_id: user.user.counselor_profile[0].id
         }
 
-        createSession(post, setIsLoading)
+        createSession(post, setIsLoading, navigate)
 
     }
     return (
