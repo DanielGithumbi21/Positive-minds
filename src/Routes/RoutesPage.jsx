@@ -8,6 +8,8 @@ import PrivateRoute from './PrivateRoute';
 import CircularProgress from '@mui/material/CircularProgress';
 import Sidebar from '../components/Sidebar/Sidebar';
 import TopAppBar from '../components/AppBar/AppBar'
+import UpdateProfile from '../components/Clients/updateProfile';
+import CounsellorAppointments from '../components/counsellors/CounsellorAppointments';
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -77,11 +79,13 @@ const RoutesPage = () => {
                                 <Route element={<PrivateRoute />}>
                                     <Route path='/client' element={<Dashboard />} />
                                     <Route path='/client/profile' element={<Profile />} />
+                                    <Route path='/profile/:id/update' element={<UpdateProfile />} />
                                     <Route path='/client/be-a-therapist' element={<BeTherapist />} />
                                     <Route path='/client/appointments' element={<Appointments />} />
                                     <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
                                     <Route path="/counsellor" element={<CounsellorDashboard />} />
                                     <Route path="/counsellor/create-session" element={<CreateSession />} />
+                                    <Route path='/appointments' element={<CounsellorAppointments />} />
                                     <Route path="/view-sessions" element={<ViewSessions />} />
                                     <Route path="/session/:id/details" element={<SessionsDetails />} />
                                     <Route path="/admin" element={<AdminDashboard />} />

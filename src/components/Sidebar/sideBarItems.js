@@ -34,6 +34,11 @@ const clientItems = [
         Icon: BookOnlineIcon,
         link: "/client/appointments",
       },
+      {
+        name: "My Appointments",
+        Icon: EmailIcon,
+        link: "/appointments",
+      },
     ],
   },
 
@@ -60,9 +65,15 @@ const counsellorItems = [
       },
     ],
   },
+
   {
     name: "Sessions",
     items: [
+      {
+        name: "Appointments",
+        Icon: EmailIcon,
+        link: "/appointments",
+      },
       {
         name: "Available Sessions",
         Icon: EmailIcon,
