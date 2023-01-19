@@ -23,11 +23,7 @@ const clientItems = [
         Icon: EmailIcon,
         link: "/view-sessions",
       },
-      {
-        name: "Calendar",
-        Icon: CalendarMonthIcon,
-        link: "/",
-      },
+
       {
         name: "Become a Therapist",
         Icon: PersonIcon,

@@ -58,7 +58,7 @@ const deleteCounsellorProfile = async (navigate, id, setOpen) => {
     })
         .then(() => {
             setOpen(false)
-            navigate("admin/be-counsellor")
+            navigate("/admin/be-counsellor")
         })
 }
 
@@ -72,15 +72,15 @@ const beTherapist = (post, setOpen) => {
         })
 }
 
-const bookAppointment = async (post, setIsLoading) => {
+const bookAppointment = async (post, setIsLoading, navigate) => {
     try {
         setIsLoading(true)
         axios.post(`${api}/appointments`, post, {
             headers: authHeader()
         })
-            .then((data) => {
+            .then(() => {
                 setIsLoading(false)
-                console.log(data)
+                navigate("/client")
             })
 
     } catch (error) {
