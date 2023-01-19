@@ -80,7 +80,7 @@ const bookAppointment = async (post, setIsLoading, navigate) => {
         })
             .then(() => {
                 setIsLoading(false)
-                navigate("/client")
+                navigate("/appointments")
             })
 
     } catch (error) {
@@ -88,6 +88,34 @@ const bookAppointment = async (post, setIsLoading, navigate) => {
     }
 }
 
+const getSingleUser = async (setIsLoading, id) => {
+    try {
+        setIsLoading(true)
+        const response = await fetch(`${api}/users/${id}`, {
+            headers: authHeader(),
+        });
+        const data = await response.json();
+        setIsLoading(false);
+        return data;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const getStatistics = async (setIsLoading) => {
+    try {
+        setIsLoading(true)
+        const response = await fetch(`${api}/stats`, {
+            headers: authHeader(),
+        });
+        const data = await response.json();
+        setIsLoading(false);
+        return data;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 export {
-    getProfile, beTherapist, getCounselorProfile, bookAppointment, getSingleCounselorProfile, deleteCounsellorProfile, verifyCounsellor
+    getProfile, beTherapist, getCounselorProfile, bookAppointment, getSingleCounselorProfile, deleteCounsellorProfile, verifyCounsellor, getStatistics, getSingleUser
 }

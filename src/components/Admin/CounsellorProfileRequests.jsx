@@ -26,6 +26,7 @@ const CounsellorProfileRequests = () => {
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
+                                    <th scope="col">Verification</th>
                                     <th scope="col">Actions</th>
 
                                 </tr>
@@ -39,6 +40,7 @@ const CounsellorProfileRequests = () => {
                                             <th scope="row" >{counsellor.user.id}</th>
                                             <td>{counsellor.user.name}</td>
                                             <td>{counsellor.user.email}</td>
+                                            <td>{counsellor.verified ? "Verified" : "Not Verified"}</td>
                                             <td><button className="btn-success btn-md btn" onClick={(() => navigate(`/admin/${counsellor.id}/counsellor-details`))} >View</button></td>
 
 

@@ -3,7 +3,9 @@ import { getProfile } from '../../Data/users/users'
 import image from "../../assets/placeholder.jpg"
 import CircularProgress from '@mui/material/CircularProgress';
 import "./Profile.css"
+import { useNavigate } from 'react-router-dom';
 const Profile = () => {
+    const navigate = useNavigate()
     const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
 
@@ -20,9 +22,9 @@ const Profile = () => {
 
                         </div>
                         <div className="col-lg-6">
-                            <div className="text-left">
-                                <button className="btn btn-success">Edit Profile</button>
-                            </div>
+                            {/* <div className="text-left">
+                                <button className="btn btn-success" onClick={(() => navigate(`/profile/${data.id}/update`))}>Edit Profile</button>
+                            </div> */}
                         </div>
                         <div className="col-lg-6">
                             <img className='business-details-image ' src={data.avatar === null ? image : data.avatar} />

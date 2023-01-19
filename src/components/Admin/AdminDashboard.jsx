@@ -2,7 +2,7 @@ import { Card, Container } from '@mui/material'
 import { Chart as ChartJS, registerables } from "chart.js";
 import React, { useEffect, useState } from 'react'
 import { getSessions } from '../../Data/users/counsellors';
-import { getCounselorProfile } from '../../Data/users/users';
+import { getCounselorProfile, getStatistics } from '../../Data/users/users';
 import CircularProgress from '@mui/material/CircularProgress';
 import PersonIcon from "@mui/icons-material/Person";
 import BookOnlineIcon from "@mui/icons-material/BookOnline";
@@ -12,36 +12,35 @@ import {
 ChartJS.register(...registerables);
 
 const Admin = () => {
-  const [sessions, setSessions] = useState([])
-  const [counsellors, setCounsellors] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [stats, setStats] = useState({})
   useEffect(() => {
-    getSessions(setIsLoading)
-      .then((data) => setSessions(data))
-    getCounselorProfile(setIsLoading)
-      .then((data) => setCounsellors(data))
+    getStatistics(setIsLoading).then((data) => {
+      setStats(data)
+    })
   }, [])
 
   const usersData = [
     {
       name: "users",
-      total: "9"
+      total: stats.users
     },
     {
       name: "Counsellors",
-      total: counsellors.length
+      total: stats.counselors
     }
   ]
   const sessionsData = [
     {
       name: "Appointments",
-      total: "9"
+      total: stats.appointments
     },
     {
       name: "Sessions",
-      total: sessions.length
+      total: stats.sessions
     }
   ]
+
   return (
 
     <React.Fragment>
@@ -64,7 +63,7 @@ const Admin = () => {
                       <div className="col-lg-10">
                         <h6 className='mt-3 mb-3'>Users</h6>
                         <div className="text-center">
-                          <h4 className='mb-2 mt-4'>9</h4>
+                          <h5 className='mb-2 mt-4'>{stats.users}</h5>
                         </div>
 
                       </div>
@@ -93,7 +92,7 @@ const Admin = () => {
                         <h6 className='mt-3 mb-3'>Counsellors</h6>
 
                         <div className="text-center">
-                          <h4 className='mb-2 mt-4'>{counsellors.length}</h4>
+                          <h5 className='mb-2 mt-4'>{stats.counselors}</h5>
                         </div>
 
 
@@ -123,7 +122,7 @@ const Admin = () => {
                         <h6 className='mt-3 mb-3'>Sessions</h6>
 
                         <div className="text-center">
-                          <h4 className='mb-2 mt-4'>{sessions.length}</h4>
+                          <h5 className='mb-2 mt-4'>{stats.sessions}</h5>
                         </div>
 
                       </div>
@@ -152,7 +151,7 @@ const Admin = () => {
                         <h6 className='mt-3 mb-3'>Appointments</h6>
 
                         <div className="text-center">
-                          <h4 className='mb-2 mt-4'>9</h4>
+                          <h5 className='mb-2 mt-4'>{stats.appointments}</h5>
                         </div>
 
                       </div>

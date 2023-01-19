@@ -58,10 +58,24 @@ const getSessionDetails = async (setIsLoading, id) => {
         console.error(error)
     }
 }
+const getAppointments = async (setIsLoading) => {
+    try {
+        setIsLoading(true)
+        const response = await fetch(`${api}/appointments`, {
+            headers: authHeader()
+        })
+        const data = await response.json()
+        setIsLoading(false)
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 export {
     createSession,
     getSessions,
     getSessionDetails,
-    bookFromSession
+    bookFromSession,
+    getAppointments
 }
