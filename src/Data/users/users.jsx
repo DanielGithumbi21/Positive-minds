@@ -2,7 +2,7 @@ import { api } from "../Auth/Data";
 import authHeader from "../Auth/AuthHelper";
 import axios from "axios";
 
-const getProfile = async (setIsLoading) => {
+const getProfile = async () => {
     try {
         setIsLoading(true);
         const response = await fetch(`${api}/profile`, {

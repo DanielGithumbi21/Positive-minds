@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import CircularProgress from '@mui/material/CircularProgress';
 import Sidebar from '../components/Sidebar/Sidebar';
 import TopAppBar from '../components/AppBar/AppBar'
+import EditProfile from '../components/Clients/EditProfile'
 const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -77,6 +78,7 @@ const RoutesPage = () => {
                                 <Route element={<PrivateRoute />}>
                                     <Route path='/client' element={<Dashboard />} />
                                     <Route path='/client/profile' element={<Profile />} />
+                                    <Route path='/edit-profile' element={<EditProfile />} />
                                     <Route path='/client/be-a-therapist' element={<BeTherapist />} />
                                     <Route path='/client/appointments' element={<Appointments />} />
                                     <Route path='/client/:id/book-appointment' element={<BookAppointment />} />
