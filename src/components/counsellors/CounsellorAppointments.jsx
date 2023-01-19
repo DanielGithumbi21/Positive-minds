@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { getAppointments, getSessions } from '../../Data/users/counsellors'
+import { getAppointments } from '../../Data/users/counsellors'
 import CircularProgress from '@mui/material/CircularProgress';
-import { useNavigate } from 'react-router-dom';
-import { Pagination } from '@mui/material'
 import { DataContext } from '../../Context/DataContext';
 const CounsellorAppointments = () => {
-    const navigate = useNavigate()
     const [appointments, setAppointments] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
@@ -16,15 +13,7 @@ const CounsellorAppointments = () => {
             setAppointments(data)
         })
     }, [])
-    const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage] = useState(5)
-    const handleChange = (e, value) => {
-        setCurrentPage(value);
-    };
-    const indexOfLastPost = currentPage * postsPerPage
-    const indexOfFirstPost = indexOfLastPost - postsPerPage
-    const currentPosts = appointments.slice(indexOfFirstPost, indexOfLastPost)
-    console.log(appointments)
+
     return (
         <React.Fragment>
             {

@@ -20,11 +20,11 @@ const createSession = async (post, setIsLoading, navigate) => {
 const bookFromSession = async (setIsLoading, id, navigate) => {
     try {
         setIsLoading(true)
-        axios.post(`${api}/new_from_session`, {}, {
+        axios.post(`${api}/new_from_session`, { session_id: id }, {
             headers: authHeader()
         })
             .then((data) => {
-                console.log(data)
+                navigate("/appointments")
             })
         setIsLoading(false)
     } catch (error) {

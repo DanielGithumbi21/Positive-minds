@@ -106,7 +106,7 @@ const SessionsDetails = () => {
                             user.user.is_admin || user.user.is_counselor ? "" :
 
                                 <div className="text-center mb-3 mt-3">
-                                    <button className="btn-success btn-md btn m-3" onClick={bookAppointment}>Book an appointment</button>
+                                    <button className="btn-success btn-md btn m-3" onClick={bookAppointment}>Book Session</button>
 
                                 </div>
                         }
