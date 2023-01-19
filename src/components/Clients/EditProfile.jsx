@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 import { updateProfile } from '../../Data/users/users'
 // import { getSessions } from '../../Data/users/counsellors';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function EditProfile() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -29,7 +31,7 @@ export default function EditProfile() {
 
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         let formErrors = {};
         if (!formData.username) formErrors.username = 'Username is required';
@@ -39,9 +41,13 @@ export default function EditProfile() {
 
         setErrors(formErrors);
         if (Object.keys(formErrors).length === 0) {
-            console.log(formData);
+            // console.log(formData);
             const userId = localStorage.getItem('userId');
-            updateProfile(userId, formData);
+            const response = await updateProfile(userId, formData);
+            if (response.status === 200) {
+
+                navigate('/profile');
+            }
         }
     };
 
@@ -58,6 +64,7 @@ export default function EditProfile() {
                         value={formData.username}
                         onChange={handleChange}
                         invalid={errors.username}
+                        className="form-control"
                     />
                     {errors.username && <Alert color="danger">{errors.username}</Alert>}
                 </FormGroup>
@@ -70,6 +77,7 @@ export default function EditProfile() {
                         value={formData.email}
                         onChange={handleChange}
                         invalid={errors.email}
+                        className="form-control"
                     />
                     {errors.email && <Alert color="danger">{errors.email}</Alert>}
                 </FormGroup>
