@@ -2,7 +2,7 @@ import { api } from "../Auth/Data";
 import authHeader from "../Auth/AuthHelper";
 import axios from "axios";
 
-const getProfile = async () => {
+const getProfile = async (setIsLoading) => {
     try {
         setIsLoading(true);
         const response = await fetch(`${api}/profile`, {
@@ -88,6 +88,19 @@ const bookAppointment = async (post, setIsLoading, navigate) => {
     }
 }
 
+const updateProfile = async (formData, userId) => {
+    try {
+        const response = await axios.put(`${api}/users/${userId}`, formData, {
+            headers: authHeader(),
+        });
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
+
 export {
-    getProfile, beTherapist, getCounselorProfile, bookAppointment, getSingleCounselorProfile, deleteCounsellorProfile, verifyCounsellor
+    getProfile, beTherapist, getCounselorProfile, bookAppointment, getSingleCounselorProfile, deleteCounsellorProfile, verifyCounsellor, updateProfile
 }
